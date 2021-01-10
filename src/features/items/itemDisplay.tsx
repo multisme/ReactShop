@@ -2,6 +2,7 @@ import React from "react";
 import {useDispatch} from "react-redux"
 
 import { itemData } from "features/items/item";
+import { updateSelectedItem } from "features/showcase/showcaseSlice"
 
 import styles from 'features/items/itemDisplay.module.css';
 
@@ -23,6 +24,7 @@ const dispatch = useDispatch();
 
 const selectItem = (e: any) => {
         e.preventDefault();
+       dispatch( updateSelectedItem(item) );
 }
 
   return (
