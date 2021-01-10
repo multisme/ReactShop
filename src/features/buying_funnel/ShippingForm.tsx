@@ -6,15 +6,16 @@ export function useFormFields(initialState: any) {
   return [
     fields,
     function(event: any) {
+       console.log(fields, event.target.id);
       setValues({
         ...fields,
-        [event.target.id]: event.target.value
+        [event.target.id]: event.currentTarget.value
       });
     }
   ];
 }
 
-export const ShippingForm = () => {
+const ShippingForm = () => {
         
         const [fields, handleFieldChange] = useFormFields({
                fistName: "",
@@ -28,13 +29,16 @@ export const ShippingForm = () => {
         return (
         <div id="buy">
         <form>
-                <label>First Name: <input type="text" value={fields.fistName} /> </label>
-                <label>Last Name: <input type="text" value={fields.lastName} /> </label>
-                <label>Email: <input type="email" value={fields.email} /> </label>
-                <label>Address: <input type="text" value={fields.address} /> </label>
-                <label>City: <input type="text" value={fields.city} /> </label>
-                <label>Postal Code: <input type="text" value={fields.postalCode} /> </label>
+                <label>First Name: <input type="text"  onChange={handleFieldChange} id="firstName"/> </label>
+                <label>Last Name: <input type="text" onChange={handleFieldChange}/> </label>
+                <label>Email: <input type="email"  onChange={handleFieldChange}/> </label>
+                <label>Address: <input type="text" onChange={handleFieldChange}/> </label>
+                <label>City: <input type="text" onChange={handleFieldChange}/> </label>
+                <label>Postal Code: <input type="text" onChange={handleFieldChange} /> </label>
+                <button type="submit">Ship</button>
         </form>
         </div>
        )
 }
+
+export default ShippingForm;
