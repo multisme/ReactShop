@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {itemData} from 'features/items/item';
+import {itemData} from 'features/item/itemSlice';
 
 export interface showcaseInterface{
         selected: itemData | null

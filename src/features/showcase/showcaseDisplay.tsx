@@ -1,7 +1,7 @@
 import React, {Dispatch, useEffect} from "react";
 import {} from "@reduxjs/toolkit";
 
-import {itemData} from "features/items/item";
+import {itemData} from "features/item/itemSlice";
 
 
 interface ShowcaseItemDisplayProps{
