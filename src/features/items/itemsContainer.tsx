@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { fetchItems, itemsSelector} from "features/items/itemsSlice";
 
-import { ItemListDisplay } from "features/items/itemDisplay";
+import { ItemListDisplay } from "features/items/itemsDisplay";
 
 interface ItemContainerProps {
   //    page: number
