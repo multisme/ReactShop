@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk } from "app/store";
-import { itemData } from "features/items/item";
+import { itemData } from "features/item/itemSlice";
 
 export interface itemListState {
   loading: boolean;

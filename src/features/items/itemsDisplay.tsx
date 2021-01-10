@@ -1,18 +1,16 @@
 import React from "react";
 
 import { itemData } from "features/item/itemSlice";
-import { itemDisplay } from "features/item/itemDisplay"; 
-
-import styles from 'features/items/itemDisplay.module.css';
+import { ItemDisplay } from "features/item/itemDisplay"; 
 
 interface Props{
         items: itemData[]
 }
 
-export const ItemsDisplay = ({ items }: Props) => {
-        const renderedlist = items.map((item: itemData) => <ItemDisplay {...item}/>);
+export const ItemListDisplay = ({ items }: Props) => {
+        const renderedlist = items.map((item: itemData) => <ItemDisplay {...item} key={item.id}/>);
         return (
-        <ul className={styles.productList} id="list">
+        <ul className="productList" id="list">
                 {renderedlist}
         </ul>
         );
