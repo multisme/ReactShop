@@ -4,7 +4,8 @@ enum buyingStep{
         Browsing,
         Buying,
         Shipping,
-        Confirmed,
+        Paying,
+        Confirmed
 }
 
 interface buyingFunnelState{
@@ -12,8 +13,8 @@ interface buyingFunnelState{
 }
 
 const initialState = {
-        step: Browsing
-}
+        step: buyingStep.Browsing
+} as buyingFunnelState
 
 const BuyingFunnelSlice = createSlice({
         name: "buying_funnel",
@@ -29,6 +30,6 @@ export const{
         fromBrownsingToBuying,
         fromBuyingToShipping,
         fromShippingtoConfirmed
-} = buyingFunnelState.action;
+} = BuyingFunnelSlice.actions;
 
-export default BuyingFunnelSlice.reducers
+export default BuyingFunnelSlice.reducer

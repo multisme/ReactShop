@@ -1,8 +1,13 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+import {fromBuyingToShipping} from "features/buying_funnel/buySlice";
 
 export const buyButton = () => {
-        const handleClick = (e) => {
-                console.log("buy");
+
+        const dispatch = useDispatch()
+
+        const handleClick = (_e: MouseEvent) => {
+                dispatch(fromBuyingToShipping());
         }
 
         return (

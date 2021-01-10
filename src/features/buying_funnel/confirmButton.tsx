@@ -1,8 +1,15 @@
 import React from "react";
 
-export const buyButton = () => {
-        const handleClick = (e) => {
-                console.log("buy");
+import {useDispatch} from "react-redux";
+
+import {fromShippingtoConfirmed} from "./buySlice";
+
+export const confirmButton = () => {
+
+         const dispatch = useDispatch();
+
+        const handleClick = (_e: any) => {
+                dispatch(fromShippingtoConfirmed);
         }
 
         return (

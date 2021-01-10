@@ -8,7 +8,7 @@ export interface itemListState {
   items: itemData[];
 }
 
-export const initialState = {
+const initialState = {
   loading: false,
   hasError: false,
   items: [],
