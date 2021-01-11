@@ -40,8 +40,8 @@ export const {
   getItemsFailure,
 } = ItemsSlice.actions;
 
-export const itemsSelector = (state: { itemsState: itemListState }) =>
-  state.itemsState;
+export const itemsSelector = (state: { items: itemListState }) =>
+  state.items;
 
 //Thunk action TO fetch the Items
 export const fetchItems = (): AppThunk => async (dispatch) => {

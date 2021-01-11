@@ -5,3 +5,9 @@
   margin: 0.25rem;
   padding: 0px;
 }
+
+.item {
+  width: 150px;
+  height: 150px;
+  margin: 0.25em;
+}

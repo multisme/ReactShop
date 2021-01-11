@@ -5,6 +5,8 @@ import {useDispatch} from "react-redux"
 import { itemData } from "features/item/itemSlice";
 import { updateSelectedItem } from "features/showcase/showcaseSlice";
 
+import "features/items/itemsDisplay.css";
+
 interface itemListProps{
         items: itemData[]
 }

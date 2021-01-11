@@ -12,7 +12,6 @@ import "./itemsContainer.css";
 export const ItemsContainer = () => {
   const dispatch: Dispatch<any> = useDispatch();
 
-  console.log(itemsSelector);
   const { hasError, loading, items } = useSelector(itemsSelector);
  
   useEffect(() => {
