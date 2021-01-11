@@ -66,19 +66,6 @@ describe('itemSlice', () => {
                 })
         });
 
-                /*
-        describe('actions', () => {
-
-                beforeEach(() => {
-                        jest.spyOn(global, 'fetch')
-                });
-
-                afterEach(() => {
-                        jest.restoreAllMocks();
-                });
-
-                );
-                */
                 describe('async actions', () => {
                         
                         const middlewares = [thunk]
@@ -87,7 +74,7 @@ describe('itemSlice', () => {
                         afterEach(() => {
                                 fetchMock.restore()
                         })
-                        it('fetch items and return them on success', () => {
+                        it('fetch items and return them on success by dispatching the correct actions', () => {
                            const payload = [{id: 1, name: "testname", "quantity": 3}];
                            fetchMock.getOnce('http://localhost:3000/items', {
                                    body: payload
@@ -98,7 +85,7 @@ describe('itemSlice', () => {
                                   expect( store.getActions()).toEqual([getItems(), getItemsSuccess(payload)])
                           })
                 })
-                        it('fetch items and return an error if there is one ', () => {
+                        it('fetch items and return an error if there is one by dispatching the correct actions', () => {
                            const payload = [{id: 1, name: "testname", "quantity": 3}];
                            fetchMock.getOnce('http://localhost:3000/items', {
                                    throws: Error
@@ -110,6 +97,6 @@ describe('itemSlice', () => {
                           })
                         });
         })
-})
 
+})
 

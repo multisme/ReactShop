@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemListDisplay gets an empty array 1`] = `
+<ul
+  className="itemsList"
+  id="list"
+/>
+`;
+
+exports[`ItemListDisplay gets array of one 1`] = `
+<ul
+  className="itemsList"
+  id="list"
+>
+  <li
+    className="item flex-centered green-border"
+    onClick={[Function]}
+  >
+    <div
+      className="name"
+    >
+      testname
+    </div>
+    <div
+      className="quantity"
+    >
+      4
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ItemListDisplay gets array of some 1`] = `
+<ul
+  className="itemsList"
+  id="list"
+>
+  <li
+    className="item flex-centered green-border"
+    onClick={[Function]}
+  >
+    <div
+      className="name"
+    >
+      testname
+    </div>
+    <div
+      className="quantity"
+    >
+      4
+    </div>
+  </li>
+  <li
+    className="item flex-centered green-border"
+    onClick={[Function]}
+  >
+    <div
+      className="name"
+    >
+      postname
+    </div>
+    <div
+      className="quantity"
+    >
+      8
+    </div>
+  </li>
+</ul>
+`;
