@@ -56,7 +56,7 @@ describe("itemSlice", () => {
         hasError: false,
         items: [],
       } as itemListState;
-      const items = itemsSelector({ itemsState: initialState });
+      const items = itemsSelector({ items: initialState });
       expect(items).toEqual(initialState);
     });
 
@@ -66,7 +66,7 @@ describe("itemSlice", () => {
         hasError: false,
         items: [{ id: 1, name: "toto", quantity: 3 }],
       };
-      const items = itemsSelector({ itemsState: initialState });
+      const items = itemsSelector({ items: initialState });
       expect(items).toEqual(initialState);
     });
   });
