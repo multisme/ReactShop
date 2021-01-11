@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
 import Home from "features/home/home";
 
 import "./app.css";
 
 const App = () => {
-  const dispatch = useDispatch();
-
   return (
     <div className="App">
       <header className="App-header"></header>

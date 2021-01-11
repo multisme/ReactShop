@@ -1,7 +1,7 @@
-.itemsList{
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0.25rem;
-        padding: 0px;
+.itemsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.25rem;
+  padding: 0px;
 }

@@ -18,7 +18,7 @@ const ItemsSlice = createSlice({
   name: "items",
   initialState,
   reducers: {
-    getItems: state => {
+    getItems: (state) => {
       state.loading = true;
     },
     getItemsSuccess: (state, { payload }: PayloadAction<itemData[]>) => {
@@ -40,7 +40,8 @@ export const {
   getItemsFailure,
 } = ItemsSlice.actions;
 
-export const itemsSelector = (state: {items: itemListState}) => state.items;
+export const itemsSelector = (state: { itemsState: itemListState }) =>
+  state.itemsState;
 
 //Thunk action TO fetch the Items
 export const fetchItems = (): AppThunk => async (dispatch) => {
@@ -50,7 +51,6 @@ export const fetchItems = (): AppThunk => async (dispatch) => {
     const response = await fetch("http://localhost:3000/items");
 
     const data = await response.json();
-    console.log("response", response)
     dispatch(getItemsSuccess(data));
   } catch (error) {
     dispatch(getItemsFailure());

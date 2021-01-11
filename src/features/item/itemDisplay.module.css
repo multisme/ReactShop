@@ -1,15 +1,15 @@
-.productList{
-        list-style: none;
-        display: flex;
+.productList {
+  list-style: none;
+  display: flex;
 }
 
-.product{
-        width: 150px;
-        height: 150px;
+.product {
+  width: 150px;
+  height: 150px;
 }
 
-.centeredContent{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.centeredContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

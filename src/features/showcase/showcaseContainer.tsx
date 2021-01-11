@@ -1,24 +1,44 @@
-import React from "react"
-import {useSelector} from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { RootState } from "app/rootReducer";
-import {ShowcaseItemDisplay} from "features/showcase/showcaseDisplay";
+import { ShowcaseItemDisplay } from "features/showcase/showcaseDisplay";
+import { removeSelectedItem } from "features/showcase/showcaseSlice";
 
-interface ShowcaseContainerProps{
-}
+//interface ShowcaseContainerProps{}
 
-const ShowcaseContainer = ({}: ShowcaseContainerProps) => {
-        const { selected } = useSelector( (state: RootState) => state.showcase) 
+const ShowcaseContainer = () => {
+  const dispatch = useDispatch();
 
-                if (selected == null){
-                        return (<div> THIS IS A SHOPPING WEBSITE</div>)
-                } else {
-                        return (
-                                        <div>
-                                        <ShowcaseItemDisplay item={selected}/>
-                                        </div>
-                               )
-                }
-}
+  const { selected } = useSelector((state: RootState) => state.showcase);
 
-export default ShowcaseContainer
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    dispatch(removeSelectedItem());
+    console.log(selected);
+  };
+
+  const renderedElement =
+    selected == null ? (
+      <div className={"header showcaseContainer"}>
+        THIS IS A SHOPPING WEBSITE
+      </div>
+    ) : (
+      <div className={"showcaseContainer border-green"}>
+        <ShowcaseItemDisplay item={selected} />
+        <div className="nav">
+          <div className={"button green-border"}>Buy</div>
+          <div className={"button green-border"} onClick={handleClick}>
+            Go back
+          </div>
+        </div>
+      </div>
+    );
+  return (
+    <div className="ShowcaseContainer green-border flex-centered">
+      {renderedElement}
+    </div>
+  );
+};
+
+export default ShowcaseContainer;

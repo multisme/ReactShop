@@ -3,43 +3,38 @@ import { useDispatch, useSelector } from "react-redux";
 
 //import { RootState } from "app/rootReducer";
 
-import { fetchItems, itemsSelector} from "features/items/itemsSlice";
+import { fetchItems, itemsSelector } from "features/items/itemsSlice";
 
 import { ItemListDisplay } from "features/items/itemsDisplay";
 
-interface ItemContainerProps {
-  //    page: number
-}
+import "./itemsContainer.css";
 
-export const ItemsContainer = ({}: //  page = 1
-
-ItemContainerProps) => {
+export const ItemsContainer = () => {
   const dispatch: Dispatch<any> = useDispatch();
 
+  console.log(itemsSelector);
   const { hasError, loading, items } = useSelector(itemsSelector);
+ 
   useEffect(() => {
-            dispatch(fetchItems())
+    dispatch(fetchItems());
   }, [dispatch]);
-  console.log(items, hasError, loading);
 
   if (hasError) {
     return (
       <div>
-        <h1>Something went  wrong with the database</h1>
+        <h1>Something went wrong with the database</h1>
         <h3>Is the developper payed well enough?</h3>
       </div>
     );
   }
 
-  console.log(items, hasError, loading);
-  console.log(items.length);
   let renderedContainer = loading ? (
     <h3>Loading...</h3>
   ) : (
-    <ItemListDisplay items={items}/>
+    <ItemListDisplay items={items} />
   );
 
-  return <ul id="">{renderedContainer}</ul>;
+  return <div className="ListContainer green-border">{renderedContainer}</div>;
 };
 
 export default ItemsContainer;

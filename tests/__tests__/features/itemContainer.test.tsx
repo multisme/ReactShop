@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import * as redux from 'react-redux';
-import { Provide, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import thunk, { ThunkDispatch } from "redux-thunk";
 import { mount, shallow } from 'enzyme';
 
@@ -34,10 +34,6 @@ jest.mock('react-redux', () => {
 
 describe('itemsContainer', () => {
         let store: any
-       const mockDispatch = jest.fn();
-beforeAll(() => {
-useDispatch = jest.fn().mockImplementation(() => mockDispatch);
-}); 
         beforeEach(() => {
                  // useSelectorMock.mockClear()
                  // useDispatchMock.mockClear()
@@ -53,6 +49,7 @@ useDispatch = jest.fn().mockImplementation(() => mockDispatch);
                                 loading: false
                      }
                 });
+/*
                         store.dispatch = jest.fn();
                         const component = mount(
                                 <redux.Provider store={store}>
@@ -67,7 +64,6 @@ useDispatch = jest.fn().mockImplementation(() => mockDispatch);
                         expect(h3.length).toEqual(1);
                         expect(h3.text()).toEqual('Loading...')
                 })
-/*
                 it("correct component rendered on fetchList error", () => {
                         const component = mount(
                                 <Provider store={store}>
