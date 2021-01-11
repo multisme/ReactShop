@@ -1,11 +1,19 @@
 import { Action } from "redux";
+
+import createMockStore from "redux-mock-store";
+import fetchMock from "fetch-mock";
+import thunk, {ThunkDispatch} from "redux-thunk";
+import { useSelector } from "react-redux";
 //import fetchMock from 'fetch-mock';
+
 
 import reducer, {
         fetchItems,
         getItems,
         getItemsFailure,
         getItemsSuccess,
+        itemsSelector,
+        itemListState
 } from 'features/items/itemsSlice'
 
 describe('itemSlice', () => {
@@ -34,27 +42,74 @@ describe('itemSlice', () => {
                         expect(state).toEqual({  loading: false , hasError: true, items: []});
                 });
 
-        })
-        describe('actions', () => {
-                /*
-                const middlewares = [thunk]
-                const mockStore = configureMockStore(middlewares)
+        });
 
+        describe('selector', () => {
+                it('returns an empty array when ther are no items', () => {
+                        const initialState = {
+                                loading: false,
+                                hasError: false,
+                                items: []
+                        } as itemListState;                                
+                        const items = itemsSelector({itemsState: initialState})
+                        expect(items).toEqual(initialState);
+                })
+
+                it('returns an empty array when there are a lot of items', () => {
+                        const initialState = {
+                                loading: false,
+                                hasError: false,
+                                items: [{"id": 1, "name": "toto", "quantity": 3}]
+                        };                                
+                        const items = itemsSelector({itemsState: initialState})
+                        expect(items).toEqual(initialState);
+                })
+        });
+
+                /*
+        describe('actions', () => {
+
+                beforeEach(() => {
+                        jest.spyOn(global, 'fetch')
+                });
+
+                afterEach(() => {
+                        jest.restoreAllMocks();
+                });
+
+                );
+                */
                 describe('async actions', () => {
+                        
+                        const middlewares = [thunk]
+                        const mockStore = createMockStore(middlewares);
+ 
                         afterEach(() => {
                                 fetchMock.restore()
                         })
-                        it('fetch items', () =>
+                        it('fetch items and return them on success', () => {
+                           const payload = [{id: 1, name: "testname", "quantity": 3}];
                            fetchMock.getOnce('http://localhost:3000/items', {
-                                   body: [{id: 1, name: "testname", "quantity": 3}]
+                                   body: payload
                            })
-                           const store = mockStore({ todos: [] })
-                           return store.dispatch(actions.fetchTodos()).then(() => {
-                                   // return of async actions
-                                   expect(store.getActions()).toEqual(expectedActions)
-                           })
+                          const store = mockStore();
+                          //setup correct tests
+                          return store.dispatch<any>(fetchItems()).then(() => {
+                                  expect( store.getActions()).toEqual([getItems(), getItemsSuccess(payload)])
+                          })
                 })
-                */
+                        it('fetch items and return an error if there is one ', () => {
+                           const payload = [{id: 1, name: "testname", "quantity": 3}];
+                           fetchMock.getOnce('http://localhost:3000/items', {
+                                   throws: Error
+                           })
+                          const store = mockStore();
+                          //setup correct tests
+                          return store.dispatch<any>(fetchItems()).then(() => {
+                                  expect( store.getActions() ).toEqual([getItems(), getItemsFailure()])
+                          })
+                        });
         })
 })
+
 
