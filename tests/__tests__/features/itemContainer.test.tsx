@@ -32,6 +32,7 @@ jest.mock('react-redux', () => {
        }
 });
 
+/*
 describe('itemsContainer', () => {
         let store: any
         beforeEach(() => {
@@ -49,7 +50,6 @@ describe('itemsContainer', () => {
                                 loading: false
                      }
                 });
-/*
                         store.dispatch = jest.fn();
                         const component = mount(
                                 <redux.Provider store={store}>
@@ -82,5 +82,5 @@ describe('itemsContainer', () => {
                         );
                         expect(component).toMatchSnapshot();
                 })
-                */
 })
+                */
