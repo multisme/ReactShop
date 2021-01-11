@@ -7,7 +7,7 @@ import { fetchItems, itemsSelector } from "features/items/itemsSlice";
 
 import { ItemListDisplay } from "features/items/itemsDisplay";
 
-import "./itemsContainer.css";
+import "features/items/itemsContainer.css";
 
 export const ItemsContainer = () => {
   const dispatch: Dispatch<any> = useDispatch();
