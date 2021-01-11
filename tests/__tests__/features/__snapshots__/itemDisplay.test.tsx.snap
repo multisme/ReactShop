@@ -1,69 +1,219 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ItemListDisplay gets an empty array 1`] = `
-<ul
-  className="itemsList"
-  id="list"
-/>
+exports[`ItemListDisplay component is rendered with an empty array 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ItemListDisplay
+    items={Array []}
+  >
+    <ul
+      className="itemsList"
+      id="list"
+    />
+  </ItemListDisplay>
+</Provider>
 `;
 
-exports[`ItemListDisplay gets array of one 1`] = `
-<ul
-  className="itemsList"
-  id="list"
+exports[`ItemListDisplay component is rendered with array of one 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <li
-    className="item flex-centered green-border"
-    onClick={[Function]}
+  <ItemListDisplay
+    items={
+      Array [
+        Object {
+          "id": 3,
+          "name": "testname",
+          "quantity": 4,
+        },
+      ]
+    }
   >
-    <div
-      className="name"
+    <ul
+      className="itemsList"
+      id="list"
     >
-      testname
-    </div>
-    <div
-      className="quantity"
-    >
-      4
-    </div>
-  </li>
-</ul>
+      <ItemDisplay
+        item={
+          Object {
+            "id": 3,
+            "name": "testname",
+            "quantity": 4,
+          }
+        }
+        key="3"
+      >
+        <li
+          className="item flex-centered green-border"
+          key="3"
+          onClick={[Function]}
+        >
+          <div
+            className="name"
+          >
+            testname
+          </div>
+          <div
+            className="quantity"
+          >
+            4
+          </div>
+        </li>
+      </ItemDisplay>
+    </ul>
+  </ItemListDisplay>
+</Provider>
 `;
 
-exports[`ItemListDisplay gets array of some 1`] = `
-<ul
-  className="itemsList"
-  id="list"
+exports[`ItemListDisplay component is rendered with array of some 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <li
-    className="item flex-centered green-border"
-    onClick={[Function]}
+  <ItemListDisplay
+    items={
+      Array [
+        Object {
+          "id": 3,
+          "name": "testname",
+          "quantity": 4,
+        },
+        Object {
+          "id": 4,
+          "name": "postname",
+          "quantity": 8,
+        },
+      ]
+    }
   >
-    <div
-      className="name"
+    <ul
+      className="itemsList"
+      id="list"
     >
-      testname
-    </div>
-    <div
-      className="quantity"
-    >
-      4
-    </div>
-  </li>
-  <li
-    className="item flex-centered green-border"
-    onClick={[Function]}
+      <ItemDisplay
+        item={
+          Object {
+            "id": 3,
+            "name": "testname",
+            "quantity": 4,
+          }
+        }
+        key="3"
+      >
+        <li
+          className="item flex-centered green-border"
+          key="3"
+          onClick={[Function]}
+        >
+          <div
+            className="name"
+          >
+            testname
+          </div>
+          <div
+            className="quantity"
+          >
+            4
+          </div>
+        </li>
+      </ItemDisplay>
+      <ItemDisplay
+        item={
+          Object {
+            "id": 4,
+            "name": "postname",
+            "quantity": 8,
+          }
+        }
+        key="4"
+      >
+        <li
+          className="item flex-centered green-border"
+          key="4"
+          onClick={[Function]}
+        >
+          <div
+            className="name"
+          >
+            postname
+          </div>
+          <div
+            className="quantity"
+          >
+            8
+          </div>
+        </li>
+      </ItemDisplay>
+    </ul>
+  </ItemListDisplay>
+</Provider>
+`;
+
+exports[`itemDisplay component is rendered 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ItemDisplay
+    item={
+      Object {
+        "id": 3,
+        "name": "pierre",
+        "quantity": 4,
+      }
+    }
   >
-    <div
-      className="name"
+    <li
+      className="item flex-centered green-border"
+      key="3"
+      onClick={[Function]}
     >
-      postname
-    </div>
-    <div
-      className="quantity"
-    >
-      8
-    </div>
-  </li>
-</ul>
+      <div
+        className="name"
+      >
+        pierre
+      </div>
+      <div
+        className="quantity"
+      >
+        4
+      </div>
+    </li>
+  </ItemDisplay>
+</Provider>
 `;
