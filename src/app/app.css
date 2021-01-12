@@ -376,6 +376,7 @@ a:visited{
 .App {
   text-align: center;
   width: 100vw;
+  height: 100vh;
 }
 .flex-centered {
   display: flex;
@@ -553,4 +554,14 @@ p:nth-child(12) {
 .details {
   display: flex;
   justify-self: space-between;
+}
+
+.rectangle{
+        width: 30%;
+        padding: 0.5em;
+        height: 80vh;
+}
+
+.buy{
+        height: 100vh;
 }

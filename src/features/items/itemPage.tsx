@@ -10,11 +10,13 @@ interface productPageParams{
 const ItemPage = ()=>{
         const {id}  = useParams<productPageParams>();
         if (id == undefined){
-                return;
+                return (
+                <h3>Error</h3>
+                );
         }
         
         const handleClick = (e: any) => {
-                e.preventDefault;
+                e.preventDefault();
                 console.log("BUY");
         }
         return (

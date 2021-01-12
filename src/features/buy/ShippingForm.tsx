@@ -25,7 +25,7 @@ const ShippingForm = () => {
   });
 
   return (
-    <div id="buy">
+    <div id="Ship" className={"rectangle border-green"}>
       <form>
         <label>
           Name: <input type="text" onChange={handleFieldChange} id="Name" />{" "}
@@ -42,7 +42,7 @@ const ShippingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} />{" "}
         </label>
-        <button type="submit">Ship</button>
+        <button type="submit">SHIP</button>
       </form>
     </div>
   );

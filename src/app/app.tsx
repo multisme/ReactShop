@@ -5,7 +5,8 @@ import {
 } from "react-router-dom";
 
 import Home from "features/home/home";
-import ItemPage from "features/items/itemPage";
+import Item from "features/items/itemPage";
+import Buy from "features/buy/BuyPage";
 
 import "./app.css";
 
@@ -15,7 +16,8 @@ const App = () => {
     <div className="App">
        <Switch> 
         <Route exact path="/" component={Home}/>
-        <Route path="/products/:ItemId" component={ItemPage}/>
+        <Route path="/products/:ItemId" component={Item}/>
+        <Route Buy="/buy" component={Buy} />
        </Switch> 
     </div>
     </Router>
