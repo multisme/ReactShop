@@ -29,7 +29,7 @@ const ShippingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} />{" "}
         </label>
-        <button type="submit">SHIP</button>
+        <button type="submit">BILL</button>
       </form>
     </div>
   );

@@ -8,6 +8,7 @@ useElements
 } from "@stripe/react-stripe-js";
 import {loadStripe, PaymentMethod, StripeError} from '@stripe/stripe-js';
 
+import { useFormFields } from "utils/utils" 
 
 const stripePromise = loadStripe('pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG');
 
@@ -40,7 +41,7 @@ const ErrorMessage = ({children}: any) => (
 const StripeCheckoutForm = () => {
   const stripe = useStripe(); 
   const elements = useElements();
-  const [error, setError] = useState<StripeError | null>(null);
+  const [error, setError] = useState<StripeError | null | undefined>(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod | null>(null);
@@ -94,7 +95,7 @@ const StripeCheckoutForm = () => {
 <form className="Form" onSubmit={handleSubmit}>
   <fieldset className="FormGroup">
     <div className="FormRow">
-      <CardElement   />
+      <CardElement />
     </div>
   </fieldset>
         <SubmitButton processing={processing} error={error} disabled={!stripe}>

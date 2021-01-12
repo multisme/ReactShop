@@ -1,13 +1,17 @@
 import React from "react";
 
-import ShippinForm from "features/buy/ShippingForm";
+import ShippingForm from "features/buy/ShippingForm";
+import BillingForm from "features/buy/BillingForm";
 import PayingForm from "features/buy/PayingForm";
+import ThankForm from "features/buy/ThankForm";
 
 const BuyPage = () => {
         return (
         <div className={"buy flex-centered"}>
-        <ShippinForm />
+        <ShippingForm />
+        <BillingForm />
         <PayingForm />
+        <ThankForm />
         </div>
         )
 };
