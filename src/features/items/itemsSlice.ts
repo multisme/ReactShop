@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk } from "app/store";
 import { itemData } from "features/item/itemSlice";
 
@@ -42,6 +42,12 @@ export const {
 
 export const itemsSelector = (state: { items: itemListState }) =>
   state.items;
+
+export const itemSelector = createSelector(
+        (state) => state.items.items,
+        (_: any, id: number) => id,
+        (items, id) => items.filter((item: itemData) => item.id == id)
+)
 
 //Thunk action TO fetch the Items
 export const fetchItems = (): AppThunk => async (dispatch) => {

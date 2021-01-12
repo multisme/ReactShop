@@ -369,6 +369,10 @@ a{
         text-decoration: none;
 }
 
+html{
+        font-family: roboto;
+}
+
 a:visited{
         color: black;
 }
@@ -385,7 +389,7 @@ a:visited{
 }
 
 .green-border {
-  border: 1px solid black;
+  border: 5px solid black;
 }
 
 #home {
@@ -554,6 +558,7 @@ p:nth-child(12) {
 .details {
   display: flex;
   justify-self: space-between;
+  align-items: flex-start;
 }
 
 .rectangle{
@@ -562,6 +567,33 @@ p:nth-child(12) {
         height: 80vh;
 }
 
-.buy{
+.buyForm{
         height: 100vh;
+}
+
+.itemPage{
+        width: 80%;
+        margin: auto;
+        height: 100vh;
+}
+
+.panel{
+        width: 40%;
+        height: 70vh;
+        display: flex;
+}
+
+.panel.right{
+}
+
+.panel.left{
+       flex-direction: column; 
+}
+
+.itemPage.flex-centered{
+        justify-content: space-between;
+}
+
+form.itemForm{
+  align-items: flex-end;
 }
