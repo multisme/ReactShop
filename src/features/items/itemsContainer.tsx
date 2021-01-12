@@ -1,9 +1,7 @@
 import React, { Dispatch, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-//import { RootState } from "app/rootReducer";
-
-import { fetchItems, itemsSelector } from "features/items/itemsSlice";
+import { itemsSelector } from "features/items/itemsSlice";
 
 import { ItemListDisplay } from "features/items/itemsDisplay";
 
@@ -14,10 +12,6 @@ export const ItemsContainer = () => {
 
   const { hasError, loading, items } = useSelector(itemsSelector);
  
-  useEffect(() => {
-    dispatch(fetchItems());
-  }, [dispatch]);
-
   if (hasError) {
     return (
       <div>

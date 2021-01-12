@@ -4,10 +4,8 @@ import {
 } from "@reduxjs/toolkit";
 
 export interface cartItem{
-        id: number,
-        name: string,
-        quantity: number,
-        price: number
+        id: number;
+        quantity: number;
 }
 
 export interface cartState {

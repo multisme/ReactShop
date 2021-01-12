@@ -1,3 +1,7 @@
+import {Dispatch, useEffect} from "react";
+import {useDispatch} from "react-redux";
+import { fetchItems } from "features/items/itemsSlice";
+
 import {
         BrowserRouter as Router,
         Route,
@@ -8,9 +12,15 @@ import Home from "features/home/home";
 import Item from "features/items/itemPage";
 import Buy from "features/buy/BuyPage";
 
-import "./app.css";
+import "app/app.css";
 
 const App = () => {
+  const dispatch: Dispatch<any> = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchItems());
+  }, [dispatch]);
+
   return (
   <Router>
     <div className="App">

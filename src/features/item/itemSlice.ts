@@ -5,8 +5,8 @@ export interface itemData {
   id: number | undefined;
   quantity: number;
   name: string;
-  price?: number
-  details?: 
+  price?: number;
+  details?: string;
 }
 
 export const initialState = {

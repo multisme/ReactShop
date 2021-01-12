@@ -21,9 +21,7 @@ describe("cartSlice", () => {
 
                         const item: cartItem = {
                                 id: 3,
-                                name: "test item",
                                 quantity: 3,
-                                price: 3
                         }
                 it("checks if the initialSate is correct", () => {
                         const emptyAction : Action<string> = {type: ""};
@@ -38,9 +36,7 @@ describe("cartSlice", () => {
                         initialSate.selection.push(item)
                         const item2: cartItem = {
                                 id: 4,
-                                name: "test item",
                                 quantity: 3,
-                                price: 3
                         }
                         const state = reducer(initialSate, addToCart(item2));
                         expect(state.selection).toContain(item)
@@ -59,7 +55,7 @@ describe("cartSlice", () => {
                 })
         })
         describe("action", () => {
-                const item: cartItem = {id:3 , name: "choco", quantity: 4,price: 3}
+                const item: cartItem = {id:3 , quantity: 4}
                 const mockStore = createMockStore();
                 it ("insure that addtocart action is sent", () => {
                         const store = mockStore();

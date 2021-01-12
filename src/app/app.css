@@ -555,7 +555,7 @@ p:nth-child(12) {
   align-items: center;
 }
 
-.details {
+.infos {
   display: flex;
   justify-self: space-between;
   align-items: flex-start;
@@ -584,6 +584,8 @@ p:nth-child(12) {
 }
 
 .panel.right{
+       flex-direction: column; 
+       justify-content: space-between;
 }
 
 .panel.left{
@@ -595,5 +597,19 @@ p:nth-child(12) {
 }
 
 form.itemForm{
-  align-items: flex-end;
+        width: 100%;
+}
+form.itemForm fieldset{
+display: flex;
+justify-content: space-between;
+}
+
+.mainImage{
+        width: 100%;
+        height: 100%;
+}
+
+.mainImage img{
+        width: 100%;
+    height: 100%;
 }

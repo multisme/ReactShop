@@ -43,9 +43,9 @@ export const {
 export const itemsSelector = (state: { items: itemListState }) =>
   state.items;
 
-export const itemSelector = createSelector(
+export const itemPageSelector = createSelector(
         (state) => state.items.items,
-        (_: any, id: number) => id,
+        (_: any, id: string | undefined) => id,
         (items, id) => items.filter((item: itemData) => item.id == id)
 )
 
