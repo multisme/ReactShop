@@ -4,7 +4,10 @@ import {useDispatch} from "react-redux"
 import {Link} from "react-router-dom"
 
 import { itemData } from "features/item/itemSlice";
-import { updateSelectedItem } from "features/showcase/showcaseSlice";
+import {
+        updateSelectedItem,
+        removeSelectedItem
+} from "features/showcase/showcaseSlice";
 
 import "features/items/itemsDisplay.css";
 
@@ -19,9 +22,9 @@ item: itemData
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
                         <Link to={`/products/${item.id}`}>
-                                <ItemDisplay item={item} key={item.id}/>
+                        <ItemDisplay item={item} key={item.id}/>
                         </Link>
-        );
+                        );
         return (
                         <ul className="itemsList" id="list">
                         {renderedlist}
@@ -35,13 +38,18 @@ export const ItemDisplay = ({item}: itemProps) => {
         const dispatch = useDispatch();
 
         const selectItem = (e: any) => {
-                e.preventDefault();
+        //        e.preventDefault();
                 dispatch( updateSelectedItem(item) );
+        }
+
+        const unselectItem = (e: any) => {
+                dispatch( removeSelectedItem() );
         }
 
         return (
                         <li
-                        onClick={selectItem}
+                        onMouseEnter={selectItem}
+                        onMouseLeave={unselectItem}
                         className={"item flex-centered green-border"} key={item.id}
                         >
                         <div className="name">{item.name}</div>
