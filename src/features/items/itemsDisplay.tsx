@@ -57,7 +57,7 @@ export const ItemDisplay = ({item}: itemProps) => {
                         </div>
                         <div className={"detailsSmall flex-centered"}>
                         <div className="name">{item.name}</div>
-                        <div className={"quantity"}>x{item.quantity}</div>
+                        <div className={"quantity"}>{item.quantity}</div>
                         </div>
                         </li>
                );

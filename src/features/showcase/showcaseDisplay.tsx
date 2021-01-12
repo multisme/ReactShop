@@ -11,7 +11,10 @@ export const ShowcaseItemDisplay = ({ item }: ShowcaseItemDisplayProps) => {
   useEffect(() => {});
   return (
     <div className={"showcaseItem border-green"}>
-      <div className="details">
+      <div className={"showcasePicture border-green"}>
+        <img src="" />
+      </div>
+      <div className="ShowcaseDetails">
         <div className="name">{item.name}</div>
         <div className="quantity">{item.quantity}</div>
       </div>
