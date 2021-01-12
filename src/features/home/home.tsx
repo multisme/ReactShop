@@ -13,7 +13,6 @@ const Home = () => {
     <div id="home">
       <ItemsContainer />
       <ShowcaseContainer />
-      <ShippingForm />
     </div>
   );
 };
