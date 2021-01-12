@@ -50,10 +50,15 @@ export const ItemDisplay = ({item}: itemProps) => {
                         <li
                         onMouseEnter={selectItem}
                         onMouseLeave={unselectItem}
-                        className={"item flex-centered green-border"} key={item.id}
+                        className={"itemCard flex-centered green-border"} key={item.id}
                         >
+                        <div className="picture">
+                           <img src="http://placekitten.com/g/300/300"/>     
+                        </div>
+                        <div className={"detailsSmall flex-centered"}>
                         <div className="name">{item.name}</div>
-                        <div className={"quantity"}>{item.quantity}</div>
+                        <div className={"quantity"}>x{item.quantity}</div>
+                        </div>
                         </li>
                );
 };
