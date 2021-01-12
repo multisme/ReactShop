@@ -1,7 +1,6 @@
 import { Action } from "redux";
 
 import createMockStore from "redux-mock-store";
-import { useSelector } from "react-redux";
 import { itemData } from "features/item/itemSlice";
 //import fetchMock from 'fetch-mock';
 
@@ -79,7 +78,7 @@ describe("showcaseSlice", () => {
                                 [updateSelectedItem(item)]
                         )
                 });
-                it("insure that updateSelectedItem action is sent", () => {
+                it("insure that removeSelectedItem action is sent", () => {
                         const store = mockStore();
                         store.dispatch(
                                removeSelectedItem()

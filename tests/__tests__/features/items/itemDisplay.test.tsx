@@ -1,11 +1,15 @@
 import React from 'react';
-import { Provider, useDispatch } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { Provider, useDispatch } from 'react-redux';
+import {BrowserRouter as Router} from "react-router-dom";
 import { mount, shallow } from 'enzyme';
 
 import { ItemDisplay, ItemListDisplay } from "features/items/itemsDisplay";
 import { itemData } from "features/item/itemSlice";
-import { updateSelectedItem } from "features/showcase/showcaseSlice";
+import {
+        updateSelectedItem,
+        removeSelectedItem
+} from "features/showcase/showcaseSlice";
 
 const mockStore = configureStore();
 
@@ -20,15 +24,16 @@ const useDispatchMock = useDispatch as jest.Mock;
  
         beforeEach(() => {
                         store = mockStore({ 
-
                 });
 
                 store.dispatch = jest.fn();
 
                 component = mount(
+                        <Router>
                         <Provider store={store}>
                                 <ItemDisplay item={item} />
                         </Provider>
+                        </Router>
                 );
         });
 
@@ -36,12 +41,18 @@ const useDispatchMock = useDispatch as jest.Mock;
                 expect(component).toMatchSnapshot();
         })
         
-        it("component dispatch event on click", () => {
-                component.find('li.item').simulate('click');
+        it("component dispatch event on hover", () => {
+                component.find('li.itemCard').simulate('mouseenter');
                 expect(store.dispatch).toHaveBeenCalledTimes(1);
                 expect(store.dispatch).toHaveBeenCalledWith(
                         updateSelectedItem(item)
                 );
+                component.find('li.itemCard').simulate('mouseleave');
+                expect(store.dispatch).toHaveBeenCalledTimes(2);
+                expect(store.dispatch).toHaveBeenCalledWith(
+                        removeSelectedItem()
+                );
+
         })
 }) 
 
@@ -57,9 +68,11 @@ describe('ItemListDisplay', () => {
         it("component is rendered with an empty array", () => {
                 const items: itemData[] = [];
                 const component= mount(
+                        <Router>
                         <Provider store={store}>
                         <ItemListDisplay items={items}/>
                         </Provider>
+                        </Router>
                 )
                 expect(component).toMatchSnapshot();
         });
@@ -68,9 +81,11 @@ describe('ItemListDisplay', () => {
                         {id: 3, "name": "testname", "quantity": 4},
                 ];
                 const component= mount(
+                        <Router>
                         <Provider store={store}>
                         <ItemListDisplay items={items}/>
                         </Provider>
+                        </Router>
                 )
                 expect(component).toMatchSnapshot();
         });
@@ -80,9 +95,11 @@ describe('ItemListDisplay', () => {
                         {id: 4, "name": "postname", "quantity": 8}
                 ];
                 const component= mount(
+                        <Router>
                         <Provider store={store}>
                         <ItemListDisplay items={items}/>
                         </Provider>
+                        </Router>
                 );
                 expect(component).toMatchSnapshot();
         })
