@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import {useDispatch} from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import {
         useFormFields,
-        FormField
+        checkValidFields
 } from "utils/utils"
 
 const ShippingForm = () => {
   const [fields, handleFieldChange] = useFormFields({
-    name: "",
-    email: "",
-    address: "",
-    city: "",
-    postalCode: "",
+    name: {},
+    email: {},
+    address: {},
+    city: {},
+    postalCode: {},
   });
 
+  const history = useHistory();
+        
   const handleClick = (e: any) => {
           e.preventDefault();
-          const valid = fields.every((field: FormField) => field.status != false)
+          const valid = checkValidFields(fields);
           if (valid == true){
-                  dispatch()
+                history.push("/bill", [fields])
           }
   }
 
   return (
-    <div id="Ship" className={"rectangle green-border"}>
+    <div id="ShipForm" className={"rectangle green-border"}>
       <form>
         <label>
           Name: <input type="text" onChange={handleFieldChange} id="name" required />{" "}

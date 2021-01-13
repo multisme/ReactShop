@@ -10,7 +10,12 @@ import {
 
 import Home from "features/home/home";
 import Item from "features/items/itemPage";
-import Buy from "features/buy/BuyPage";
+import {
+        BillPage,
+        ShipPage,
+        PayPage,
+        ThankPage
+        } from "features/buy/BuyPage";
 
 import "app/app.css";
 
@@ -27,7 +32,10 @@ const App = () => {
        <Switch> 
         <Route exact path="/" component={Home}/>
         <Route path="/products/:id" component={Item}/>
-        <Route Buy="/buy" component={Buy} />
+        <Route exact path="/ship" component={ShipPage} />
+        <Route exact path="/bill" component={BillPage} />
+        <Route exaxt path="/pay" component={PayPage} />
+        <Route exact path="/thank" component={ThankPage} />
        </Switch> 
     </div>
     </Router>

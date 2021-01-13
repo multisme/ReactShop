@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import ShippingForm from "features/buy/ShippingForm";
 import BillingForm from "features/buy/BillingForm";
@@ -8,12 +8,32 @@ import ThankForm from "features/buy/ThankForm";
 const BuyPage = () => {
         return (
         <div className={"buyPage flex-centered"}>
-        <ShippingForm />
-        <BillingForm />
-        <PayingForm />
-        <ThankForm />
         </div>
         )
 };
+
+export const ShipPage = () => {
+        return (
+         <ShippingForm />
+        )
+}
+
+export const BillPage = () => {
+        return (
+        <BillingForm />
+        )
+}
+
+export const PayPage = () => {
+        return (
+                <PayingForm />
+        )
+}
+
+export const ThankPage= () => {
+        return (
+                <ThankForm />
+        )
+}
 
 export default BuyPage;
