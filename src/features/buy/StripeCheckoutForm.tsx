@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
 Elements,
@@ -86,6 +87,9 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
       <button type="submit" disabled={!stripe}>
         Pay {total}
       </button>
+        <Link to="/home">
+                <button>CANCEL</button>
+        </Link>
     </form>
   );
 };

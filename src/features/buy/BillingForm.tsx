@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import {
+        Link,
+        useHistory,
+        useLocation
+        } from "react-router-dom";
 
 
 import {
@@ -48,6 +52,9 @@ const BillingForm = () => {
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode" required/>
         </label>
         <button type="submit" onClick={handleClick}>BILL</button>
+        <Link to="/home">
+                <button>CANCEL</button>
+        </Link>
       </form>
     </div>
   );

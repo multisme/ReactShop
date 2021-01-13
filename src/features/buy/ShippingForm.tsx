@@ -1,6 +1,9 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import {useDispatch} from "react-redux";
-import { useHistory } from "react-router-dom";
+import {
+        Link,
+        useHistory
+} from "react-router-dom";
 
 import {
         useFormFields,
@@ -45,6 +48,9 @@ const ShippingForm = () => {
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode"required/>{" "}
         </label>
         <button type="submit" onClick={handleClick}>SHIP</button>
+        <Link to="/home">
+                <button>CANCEL</button>
+        </Link>
       </form>
     </div>
   );
