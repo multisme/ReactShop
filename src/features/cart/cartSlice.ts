@@ -6,6 +6,7 @@ import {
 export interface cartItem{
         id: number;
         quantity: number;
+        price: number;
 }
 
 export interface cartState {
@@ -30,6 +31,14 @@ const cartSlice = createSlice({
                 }
         }
 })
+
+export cartSelector = (state: {cart: cartState}) => {
+        var price = 0;
+        for (item in cart){
+                price += item['price']
+        }
+        return price;
+}
 
 export default cartSlice.reducer;
 
