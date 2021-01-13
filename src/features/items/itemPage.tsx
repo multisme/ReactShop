@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import {
+        useHistory,
+        useParams
+ } from "react-router-dom";
 
 import { RootState } from "app/rootReducer";
 import {itemData} from "features/item/itemSlice";
@@ -20,6 +23,7 @@ const ItemPage = ()=>{
         });
         const dispatch = useDispatch();
         const [item] = useSelector((state) =>itemPageSelector(state, id));
+        const history = useHistory();
  
         if (id == undefined || item == undefined){
                 return (
@@ -27,18 +31,20 @@ const ItemPage = ()=>{
                 );
         }
        
-        console.log(item);
         const handleClick = (e: any) => {
                 e.preventDefault();
-                console.log("BUY");
+                if (e.target.id == "addToCart"){
+                        dispatch(addToCart({
+                        id: parseInt(id),
+                        quantity: fields.quantity.content,
+                        price: item.price}));
+                 } else {
+                         history.push("/ship")
+                 }
         }
         
         const handleSubmit = (e: any) => {
                 e.preventDefault();
-                dispatch(addToCart({
-                        id: parseInt(id),
-                        quantity: fields.quantity,
-                        price: item.price}));
         }
         
         const range = [...Array(item.quantity + 1).keys()]
@@ -70,10 +76,10 @@ const ItemPage = ()=>{
                 </select>
                 </fieldset>
                 <fieldset>
-                <button id="buy" className="buy" onClick={handleSubmit}>
+                <button id="addToCart" className="buy" onClick={handleClick}>
                         addToCart
                 </button>
-                <button id="buy" className="checkout" onClick={handleSubmit}>
+                <button id="checkout" className="checkout" onClick={handleClick}>
                         Checkout
                 </button>
                 </fieldset>
