@@ -1,6 +1,8 @@
 import React from "react";
 import {
-        createSlice, PayloadAction
+        createSelector,
+        createSlice,
+        PayloadAction
 } from "@reduxjs/toolkit";
 
 export interface cartItem{
@@ -32,11 +34,11 @@ const cartSlice = createSlice({
         }
 })
 
-export cartSelector = (state: {cart: cartState}) => {
+export const cartSelector = (state: {cart: cartState}) => {
         var price = 0;
-        for (item in cart){
-                price += item['price']
-        }
+        state.cart.selection.forEach(item => {
+                price += item.price * item.quantity;
+        });
         return price;
 }
 

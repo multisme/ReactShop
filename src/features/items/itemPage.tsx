@@ -35,7 +35,10 @@ const ItemPage = ()=>{
         
         const handleSubmit = (e: any) => {
                 e.preventDefault();
-                dispatch(addToCart({id: parseInt(id), quantity: fields.quantity}));
+                dispatch(addToCart({
+                        id: parseInt(id),
+                        quantity: fields.quantity,
+                        price: item.price}));
         }
         
         const range = [...Array(item.quantity + 1).keys()]
