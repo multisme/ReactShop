@@ -6,7 +6,7 @@ export interface showcaseInterface {
 }
 
 export const initialState = {
-  selected: null,
+  selected: null
 } as showcaseInterface;
 
 const showcaseSlice = createSlice({
@@ -17,7 +17,7 @@ const showcaseSlice = createSlice({
       state.selected = payload;
     },
     removeSelectedItem: (state) => {
-      state.selected = null;
+      //state.selected = null;
       console.log(state.selected);
     },
   },

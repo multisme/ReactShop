@@ -21,8 +21,8 @@ const ShowcaseContainer = () => {
         <ShowcaseItemDisplay item={selected} />
     );
   return (
-    <div className="ShowcaseContainer green-border flex-centered">
-      {renderedElement}
+    <div className="showcaseContainer green-border flex-centered">
+     {renderedElement}
     </div>
   );
 };

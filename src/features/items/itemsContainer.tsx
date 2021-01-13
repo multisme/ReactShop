@@ -24,10 +24,12 @@ export const ItemsContainer = () => {
   let renderedContainer = loading ? (
     <h3>Loading...</h3>
   ) : (
-    <ItemListDisplay items={items} />
+    <div className="itemListWrapper">
+        <ItemListDisplay items={items} />
+    </div>
   );
 
-  return <div className="ListContainer green-border">{renderedContainer}</div>;
+  return <div className="ListContainer">{renderedContainer}</div>;
 };
 
 export default ItemsContainer;

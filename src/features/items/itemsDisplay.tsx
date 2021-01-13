@@ -21,9 +21,11 @@ item: itemData
 
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
+                        <div className="itemCard">
                         <Link to={`/products/${item.id}`}>
                         <ItemDisplay item={item} key={item.id}/>
                         </Link>
+                        </div>
                         );
         return (
                         <ul className="itemsList" id="list">
@@ -50,14 +52,13 @@ export const ItemDisplay = ({item}: itemProps) => {
                         <li
                         onMouseEnter={selectItem}
                         onMouseLeave={unselectItem}
-                        className={"itemCard flex-centered green-border"} key={item.id}
+                        className={"flex-centered"} key={item.id}
                         >
                         <div className="picture">
-                           <img src="http://placekitten.com/g/300/300"/>     
                         </div>
                         <div className={"detailsSmall flex-centered"}>
                         <div className="name">{item.name}</div>
-                        <div className={"quantity"}>{item.quantity}</div>
+                        <div className={"price"}>{item.price}</div>
                         </div>
                         </li>
                );
