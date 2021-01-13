@@ -393,9 +393,11 @@ a:visited{
 }
 
 .App {
+  display: flex;
   text-align: center;
   width: 100vw;
   height: 100vh;
+  background-image: url(https://static.wixstatic.com/media/0d6674_2f055d292ae544279d6996c824af60dd~mv2.png/v1/fill/w_902,h_595,al_c,q_90,usm_0.66_1.00_0.01/0d6674_2f055d292ae544279d6996c824af60dd~mv2.webp);
 }
 .flex-centered {
   display: flex;
@@ -413,6 +415,8 @@ a:visited{
   border: 1px solid green;
 }
 
+
+
 #home {
   display: grid;
   grid-template-columns: 70% 30%;
@@ -420,7 +424,6 @@ a:visited{
   height: calc(100vh);
   width: 100vw;
   position: fixed;
-  background-image: url(https://static.wixstatic.com/media/0d6674_2f055d292ae544279d6996c824af60dd~mv2.png/v1/fill/w_902,h_595,al_c,q_90,usm_0.66_1.00_0.01/0d6674_2f055d292ae544279d6996c824af60dd~mv2.webp);
 }
 
 .header {
@@ -607,9 +610,8 @@ p:nth-child(12) {
 }
 
 .rectangle{
-        width: 20vw;
+        width: 25vw;
         padding: 0.5em;
-        height: 80vh;
         margin: auto;
 }
 
@@ -642,12 +644,22 @@ p:nth-child(12) {
         justify-content: space-between;
 }
 
+.panel .info .name{
+        font-size: 30px;
+text-align: left;
+margin-bottom: 10px;
+}
+
 form.itemForm{
+        margin-top: 10px;
         width: 100%;
 }
 form.itemForm fieldset{
-display: flex;
-justify-content: space-between;
+display: grid;
+}
+
+form.itemForm fieldset.quantity select{
+        align-self: end;
 }
 
 .mainImage{
@@ -662,6 +674,7 @@ justify-content: space-between;
 
 .payForm{
         height: 100vh;
+        width: 100%;
 }
 
 .buyPage{
@@ -670,9 +683,8 @@ justify-content: space-between;
 /* Buttons styles start */
 button, select {
     display: inline-block;
-    border: none;
-    padding: 1rem 2rem;
-    margin: 0;
+    border: 2px solid;
+    margin: 0.5em;
     text-decoration: none;
     font-family: sans-serif;
     cursor: pointer;
@@ -680,11 +692,38 @@ button, select {
     transition: background 250ms ease-in-out, transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-color: transparent;
+}
+
+button{
+    width: 200px;
+    padding: 1rem 2rem;
 }
 
 button:hover,
 button:focus {
     background: #0053ba;
+}
+
+label{
+        width: 200px;
+}
+
+label input{
+        margin: 0.5em;
+}
+
+input{
+        background-color: transparent;
+        border: 2px solid black;
+        margin: 0.5em;
+        width: 194px;
+}
+
+.itemForm{
+        justify-content: center;
+align-items: center;
+display: grid;
 }
 
 .info.name{
@@ -694,3 +733,33 @@ button:focus {
 .info .details{
         text-align: left;
 }
+@media only screen and (max-width: 600px){
+#home{
+        grid-template-columns: auto;
+        overflow: scroll;
+}
+.ListContainer{
+        width: 80vw;
+        margin: auto
+}
+.itemsList{
+        flex-direction: column;
+}
+
+.itemCard{
+        width: 100%;
+        margin: auto;
+}
+.showcaseContainer{
+        display: none;
+}
+
+.itemPage{
+        flex-direction: column;
+}
+.panel{
+        width: 80%
+}
+}
+
+

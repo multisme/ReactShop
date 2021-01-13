@@ -6,6 +6,7 @@ import createMockStore from "redux-mock-store";
 import reducer, {
         addToCart,
         cartItem,
+        cartSelector,
         cartState,
         removeFromCart
 } from "features/cart/cartSlice";
@@ -22,6 +23,7 @@ describe("cartSlice", () => {
                         const item: cartItem = {
                                 id: 3,
                                 quantity: 3,
+                                price: 3
                         }
                 it("checks if the initialSate is correct", () => {
                         const emptyAction : Action<string> = {type: ""};
@@ -37,6 +39,7 @@ describe("cartSlice", () => {
                         const item2: cartItem = {
                                 id: 4,
                                 quantity: 3,
+                                price: 3
                         }
                         const state = reducer(initialSate, addToCart(item2));
                         expect(state.selection).toContain(item)
@@ -55,7 +58,11 @@ describe("cartSlice", () => {
                 })
         })
         describe("action", () => {
-                const item: cartItem = {id:3 , quantity: 4}
+                const item: cartItem = {
+                        id:3,
+                        quantity: 4,
+                        price: 3
+                }
                 const mockStore = createMockStore();
                 it ("insure that addtocart action is sent", () => {
                         const store = mockStore();
@@ -75,6 +82,31 @@ describe("cartSlice", () => {
                                 [removeFromCart(item)]
                         )
                 })
+        })
+
+        describe("selector", () => {
+               let initialState: cartState;
+               beforeEach(() => {
+                        initialState = {
+                               selection: [
+                                {id:3,quantity: 4,price: 3},
+                                {id:3,quantity: 4,price: 8},
+                                {id:3,quantity: 4,price: 2},
+                                {id:3,quantity: 4,price: 6},
+                                {id:3,quantity: 0,price: 6}
+                               ]
+                       }
+                              
+               })
+               it("returns on an empty aray", () => {
+                       initialState = {
+                               selection: []
+                       }
+                        expect(cartSelector({cart: initialState})).toEqual(0)
+               })
+               it("returns the correct price on an array", () =>{
+                        expect(cartSelector({cart: initialState})).toEqual(76)
+               })
         })
 })
 

@@ -39,6 +39,9 @@ export const cartSelector = (state: {cart: cartState}) => {
         state.cart.selection.forEach(item => {
                 price += item.price * item.quantity;
         });
+        if (isNaN(price)){
+                price = 0;
+        }
         return price;
 }
 

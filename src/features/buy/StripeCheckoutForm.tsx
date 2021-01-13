@@ -71,22 +71,14 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
       <CardElement
         options={{
           style: {
-            base: {
-              fontSize: '16px',
-              color: '#424770',
-              '::placeholder': {
-                color: '#aab7c4',
-              },
-            },
-            invalid: {
-              color: '#9e2146',
-            },
           },
         }}
       />
+        <Link to="/thank">
       <button type="submit" disabled={!stripe}>
         Pay {total}
       </button>
+        </Link>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>

@@ -22,16 +22,16 @@ const ShippingForm = () => {
   const history = useHistory();
         
   const handleClick = (e: any) => {
-          e.preventDefault();
           const valid = checkValidFields(fields);
           if (valid == true){
-                history.push("/bill", [fields])
+                history.push("/pay", [fields])
           }
+          e.preventDefault();
   }
 
   return (
-    <div id="ShipForm" className={"rectangle green-border"}>
-      <form>
+    <div id="ShipForm" className={"rectangle"}>
+      <form onSubmit={handleClick}>
         <label>
           Name: <input type="text" onChange={handleFieldChange} id="name" required />{" "}
         </label>
@@ -47,7 +47,7 @@ const ShippingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode"required/>{" "}
         </label>
-        <button type="submit" onClick={handleClick}>SHIP</button>
+        <button type="submit" onSubmit={handleClick}>SHIP</button>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>

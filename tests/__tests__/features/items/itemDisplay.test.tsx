@@ -18,8 +18,7 @@ describe('itemDisplay', () => {
         let store: any;
         let component: any;
 
-const useDispatchMock = useDispatch as jest.Mock;
-                const item: itemData = {id: 3, name: "pierre", quantity: 4};
+                const item: itemData = {id: 3, name: "pierre", quantity: 4, price: 3};
 
  
         beforeEach(() => {
@@ -39,20 +38,6 @@ const useDispatchMock = useDispatch as jest.Mock;
 
         it("component is rendered", () => {
                 expect(component).toMatchSnapshot();
-        })
-        
-        it("component dispatch event on hover", () => {
-                component.find('li.itemCard').simulate('mouseenter');
-                expect(store.dispatch).toHaveBeenCalledTimes(1);
-                expect(store.dispatch).toHaveBeenCalledWith(
-                        updateSelectedItem(item)
-                );
-                component.find('li.itemCard').simulate('mouseleave');
-                expect(store.dispatch).toHaveBeenCalledTimes(2);
-                expect(store.dispatch).toHaveBeenCalledWith(
-                        removeSelectedItem()
-                );
-
         })
 }) 
 
@@ -78,7 +63,7 @@ describe('ItemListDisplay', () => {
         });
         it("component is rendered with array of one", () => {
                 const items: itemData[] = [
-                        {id: 3, "name": "testname", "quantity": 4},
+                        {id: 3, "name": "testname", "quantity": 4, price: 3},
                 ];
                 const component= mount(
                         <Router>
@@ -91,8 +76,8 @@ describe('ItemListDisplay', () => {
         });
         it("component is rendered with array of some", () => {
                 const items: itemData[] = [
-                        {id: 3, "name": "testname", "quantity": 4},
-                        {id: 4, "name": "postname", "quantity": 8}
+                        {id: 3, name: "testname", quantity: 4, price: 3},
+                        {id: 4, name: "postname", quantity: 8, price: 2}
                 ];
                 const component= mount(
                         <Router>
@@ -102,5 +87,30 @@ describe('ItemListDisplay', () => {
                         </Router>
                 );
                 expect(component).toMatchSnapshot();
+        })
+        
+        it("component dispatch event on hover", () => {
+                store.dispatch = jest.fn();
+                const items: itemData[] = [
+                        {id: 3, name: "testname", quantity: 4, price: 3},
+                ];
+                const component= mount(
+                        <Router>
+                        <Provider store={store}>
+                        <ItemListDisplay items={items}/>
+                        </Provider>
+                        </Router>
+                );
+                component.find('div.itemCard li').simulate('mouseenter');
+                expect(store.dispatch).toHaveBeenCalledTimes(1);
+                expect(store.dispatch).toHaveBeenCalledWith(
+                        updateSelectedItem(items[0])
+                );
+                component.find('div.itemCard li').simulate('mouseleave');
+                expect(store.dispatch).toHaveBeenCalledTimes(2);
+                expect(store.dispatch).toHaveBeenCalledWith(
+                        removeSelectedItem()
+                );
+
         })
 })

@@ -21,9 +21,9 @@ item: itemData
 
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
-                        <div className="itemCard">
-                        <Link to={`/products/${item.id}`}>
-                        <ItemDisplay item={item} key={item.id}/>
+                        <div className="itemCard"  key={item.id}>
+                        <Link key={item.id}to={`/products/${item.id}`}>
+                        <ItemDisplay item={item}/>
                         </Link>
                         </div>
                         );
@@ -52,7 +52,7 @@ export const ItemDisplay = ({item}: itemProps) => {
                         <li
                         onMouseEnter={selectItem}
                         onMouseLeave={unselectItem}
-                        className={"flex-centered"} key={item.id}
+                        className={"flex-centered"}
                         >
                         <div className="picture">
                         </div>

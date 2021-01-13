@@ -25,7 +25,7 @@ export function useFormFields(initialState: any) {
 export function checkValidFields(fields: any) {
         let valid: boolean;
         for (var name in fields){
-                if (fields[name].status == false){
+                if (!fields[name].status){
                         return false;
                 } 
         } 

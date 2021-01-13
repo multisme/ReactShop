@@ -91,6 +91,7 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
             Object {
               "id": 3,
               "name": "testname",
+              "price": 3,
               "quantity": 4,
             },
           ]
@@ -100,59 +101,60 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
           className="itemsList"
           id="list"
         >
-          <Link
-            to="/products/3"
+          <div
+            className="itemCard"
+            key="3"
           >
-            <LinkAnchor
-              href="/products/3"
-              navigate={[Function]}
+            <Link
+              key="3"
+              to="/products/3"
             >
-              <a
+              <LinkAnchor
                 href="/products/3"
-                onClick={[Function]}
+                navigate={[Function]}
               >
-                <ItemDisplay
-                  item={
-                    Object {
-                      "id": 3,
-                      "name": "testname",
-                      "quantity": 4,
-                    }
-                  }
-                  key="3"
+                <a
+                  href="/products/3"
+                  onClick={[Function]}
                 >
-                  <li
-                    className="itemCard flex-centered green-border"
-                    key="3"
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
+                  <ItemDisplay
+                    item={
+                      Object {
+                        "id": 3,
+                        "name": "testname",
+                        "price": 3,
+                        "quantity": 4,
+                      }
+                    }
                   >
-                    <div
-                      className="picture"
+                    <li
+                      className="flex-centered"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
                     >
-                      <img
-                        src="http://placekitten.com/g/300/300"
+                      <div
+                        className="picture"
                       />
-                    </div>
-                    <div
-                      className="detailsSmall flex-centered"
-                    >
                       <div
-                        className="name"
+                        className="detailsSmall flex-centered"
                       >
-                        testname
+                        <div
+                          className="name"
+                        >
+                          testname
+                        </div>
+                        <div
+                          className="price"
+                        >
+                          3
+                        </div>
                       </div>
-                      <div
-                        className="quantity"
-                      >
-                        4
-                      </div>
-                    </div>
-                  </li>
-                </ItemDisplay>
-              </a>
-            </LinkAnchor>
-          </Link>
+                    </li>
+                  </ItemDisplay>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
         </ul>
       </ItemListDisplay>
     </Provider>
@@ -202,11 +204,13 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
             Object {
               "id": 3,
               "name": "testname",
+              "price": 3,
               "quantity": 4,
             },
             Object {
               "id": 4,
               "name": "postname",
+              "price": 2,
               "quantity": 8,
             },
           ]
@@ -216,112 +220,114 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
           className="itemsList"
           id="list"
         >
-          <Link
-            to="/products/3"
+          <div
+            className="itemCard"
+            key="3"
           >
-            <LinkAnchor
-              href="/products/3"
-              navigate={[Function]}
+            <Link
+              key="3"
+              to="/products/3"
             >
-              <a
+              <LinkAnchor
                 href="/products/3"
-                onClick={[Function]}
+                navigate={[Function]}
               >
-                <ItemDisplay
-                  item={
-                    Object {
-                      "id": 3,
-                      "name": "testname",
-                      "quantity": 4,
-                    }
-                  }
-                  key="3"
+                <a
+                  href="/products/3"
+                  onClick={[Function]}
                 >
-                  <li
-                    className="itemCard flex-centered green-border"
-                    key="3"
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
+                  <ItemDisplay
+                    item={
+                      Object {
+                        "id": 3,
+                        "name": "testname",
+                        "price": 3,
+                        "quantity": 4,
+                      }
+                    }
                   >
-                    <div
-                      className="picture"
+                    <li
+                      className="flex-centered"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
                     >
-                      <img
-                        src="http://placekitten.com/g/300/300"
+                      <div
+                        className="picture"
                       />
-                    </div>
-                    <div
-                      className="detailsSmall flex-centered"
-                    >
                       <div
-                        className="name"
+                        className="detailsSmall flex-centered"
                       >
-                        testname
+                        <div
+                          className="name"
+                        >
+                          testname
+                        </div>
+                        <div
+                          className="price"
+                        >
+                          3
+                        </div>
                       </div>
-                      <div
-                        className="quantity"
-                      >
-                        4
-                      </div>
-                    </div>
-                  </li>
-                </ItemDisplay>
-              </a>
-            </LinkAnchor>
-          </Link>
-          <Link
-            to="/products/4"
+                    </li>
+                  </ItemDisplay>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            className="itemCard"
+            key="4"
           >
-            <LinkAnchor
-              href="/products/4"
-              navigate={[Function]}
+            <Link
+              key="4"
+              to="/products/4"
             >
-              <a
+              <LinkAnchor
                 href="/products/4"
-                onClick={[Function]}
+                navigate={[Function]}
               >
-                <ItemDisplay
-                  item={
-                    Object {
-                      "id": 4,
-                      "name": "postname",
-                      "quantity": 8,
-                    }
-                  }
-                  key="4"
+                <a
+                  href="/products/4"
+                  onClick={[Function]}
                 >
-                  <li
-                    className="itemCard flex-centered green-border"
-                    key="4"
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
+                  <ItemDisplay
+                    item={
+                      Object {
+                        "id": 4,
+                        "name": "postname",
+                        "price": 2,
+                        "quantity": 8,
+                      }
+                    }
                   >
-                    <div
-                      className="picture"
+                    <li
+                      className="flex-centered"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
                     >
-                      <img
-                        src="http://placekitten.com/g/300/300"
+                      <div
+                        className="picture"
                       />
-                    </div>
-                    <div
-                      className="detailsSmall flex-centered"
-                    >
                       <div
-                        className="name"
+                        className="detailsSmall flex-centered"
                       >
-                        postname
+                        <div
+                          className="name"
+                        >
+                          postname
+                        </div>
+                        <div
+                          className="price"
+                        >
+                          2
+                        </div>
                       </div>
-                      <div
-                        className="quantity"
-                      >
-                        8
-                      </div>
-                    </div>
-                  </li>
-                </ItemDisplay>
-              </a>
-            </LinkAnchor>
-          </Link>
+                    </li>
+                  </ItemDisplay>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
         </ul>
       </ItemListDisplay>
     </Provider>
@@ -370,23 +376,19 @@ exports[`itemDisplay component is rendered 1`] = `
           Object {
             "id": 3,
             "name": "pierre",
+            "price": 3,
             "quantity": 4,
           }
         }
       >
         <li
-          className="itemCard flex-centered green-border"
-          key="3"
+          className="flex-centered"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
           <div
             className="picture"
-          >
-            <img
-              src="http://placekitten.com/g/300/300"
-            />
-          </div>
+          />
           <div
             className="detailsSmall flex-centered"
           >
@@ -396,9 +398,9 @@ exports[`itemDisplay component is rendered 1`] = `
               pierre
             </div>
             <div
-              className="quantity"
+              className="price"
             >
-              4
+              3
             </div>
           </div>
         </li>

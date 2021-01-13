@@ -24,17 +24,16 @@ const BillingForm = () => {
 
   console.log("pol", location);
   const handleClick = (e: any) => {
-          console.log("clicl");
-          e.preventDefault()
           const valid = checkValidFields(fields);
           console.log(fields, valid);
           if (valid == true){
-                history.push("/pay", [fields])
+                history.push("/ship", [fields])
           }
+          e.preventDefault()
   }
         
   return (
-    <div id="BillingForm" className={"rectangle green-border"}>
+    <div id="BillingForm" className={"rectangle"} onSubmit={handleClick}>
       <form>
         <label>
           Name: <input type="text" onChange={handleFieldChange} id="Name" required/>
@@ -51,7 +50,7 @@ const BillingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode" required/>
         </label>
-        <button type="submit" onClick={handleClick}>BILL</button>
+        <button type="submit">BILL</button>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>
