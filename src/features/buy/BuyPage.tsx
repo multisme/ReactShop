@@ -7,7 +7,7 @@ import ThankForm from "features/buy/ThankForm";
 
 const BuyPage = () => {
         return (
-        <div className={"buy flex-centered"}>
+        <div className={"buyPage flex-centered"}>
         <ShippingForm />
         <BillingForm />
         <PayingForm />

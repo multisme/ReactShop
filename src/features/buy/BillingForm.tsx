@@ -11,25 +11,30 @@ const ShippingForm = () => {
     postalCode: "",
   });
 
+  const handleSubmit = (e: any) => {
+          e.preventDefault()
+          console.log(e);
+  }
+        
   return (
-    <div id="Ship" className={"rectangle border-green"}>
+    <div id="ShipForm" className={"rectangle green-border"}>
       <form>
         <label>
-          Name: <input type="text" onChange={handleFieldChange} id="Name" />{" "}
+          Name: <input type="text" onChange={handleFieldChange} id="Name" required/>
         </label>
         <label>
-          Email: <input type="email" onChange={handleFieldChange} />{" "}
+          Email: <input type="email" onChange={handleFieldChange} />
         </label>
         <label>
-          Address: <input type="text" onChange={handleFieldChange} />{" "}
+          Address: <input type="text" onChange={handleFieldChange} required/>{" "}
         </label>
         <label>
-          City: <input type="text" onChange={handleFieldChange} />{" "}
+          City: <input type="text" onChange={handleFieldChange} required/>
         </label>
         <label>
-          Postal Code: <input type="text" onChange={handleFieldChange} />{" "}
+          Postal Code: <input type="text" onChange={handleFieldChange} required/>
         </label>
-        <button type="submit">BILL</button>
+        <button type="submit" onSubmit={handleSubmit}>BILL</button>
       </form>
     </div>
   );
