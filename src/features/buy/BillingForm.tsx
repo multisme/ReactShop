@@ -49,10 +49,12 @@ const BillingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode" required/>
         </label>
+        <fieldset className="button">
         <button type="submit">BILL</button>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>
+        </fieldset>
       </form>
     </div>
   );

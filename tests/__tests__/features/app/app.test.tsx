@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import * as redux from 'react-redux'
 import { mount , shallow} from 'enzyme';
 import { BrowserRouter as Router} from 'react-router-dom';
-import thunk, from "redux-thunk";
+import thunk from "redux-thunk";
 
 import App from "app/app";
 import {fetchItems} from "features/items/itemsSlice";

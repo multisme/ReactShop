@@ -18,6 +18,7 @@ export function useFormFields(initialState: any) {
                                         content: event.currentTarget.value,
                                         status: event.currentTarget.validity.valid}
                         });
+                        console.log(fields);
                 },
         ];
 }

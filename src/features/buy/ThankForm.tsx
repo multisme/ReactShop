@@ -6,7 +6,7 @@ const ThankForm = () => {
 
         setTimeout(() => {
                 history.push("./")},
-                1000
+                5000
         )
         return (
                 <div className="rectangle">

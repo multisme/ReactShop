@@ -25,7 +25,6 @@ const ItemPage = ()=>{
         const dispatch = useDispatch();
         const [item] = useSelector((state) =>itemPageSelector(state, id));
         const history = useHistory();
- 
         if (id == undefined || item == undefined){
                 return (
                 <h3>Error</h3>
@@ -47,7 +46,7 @@ const ItemPage = ()=>{
         
         const range = [...Array(item.quantity + 1).keys()]
         const availableQuantities = range.map((i) => 
-                <option value={i}>{i}</option>
+                <option value={i} key={i}>{i}</option>
         )
  
         return (
@@ -71,7 +70,7 @@ const ItemPage = ()=>{
                         </div>
                 <form className="itemForm" onSubmit={handleSubmit}>
                 <fieldset className="quantity">
-                <select id="quantity" onChange={handleFieldChange}>
+                <select name="quantity" id="quantity" onChange={handleFieldChange}>
                         {availableQuantities}
                 </select>
                 </fieldset>

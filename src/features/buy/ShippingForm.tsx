@@ -47,10 +47,12 @@ const ShippingForm = () => {
         <label>
           Postal Code: <input type="text" onChange={handleFieldChange} id="postalCode"required/>{" "}
         </label>
+        <fieldset className="button">
         <button type="submit" onSubmit={handleClick}>SHIP</button>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>
+        </fieldset>
       </form>
     </div>
   );

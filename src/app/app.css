@@ -385,7 +385,7 @@ a{
 }
 
 html{
-        font-family: roboto;
+  background-image: url(https://static.wixstatic.com/media/0d6674_2f055d292ae544279d6996c824af60dd~mv2.png/v1/fill/w_902,h_595,al_c,q_90,usm_0.66_1.00_0.01/0d6674_2f055d292ae544279d6996c824af60dd~mv2.webp);
 }
 
 a:visited{
@@ -397,7 +397,6 @@ a:visited{
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-image: url(https://static.wixstatic.com/media/0d6674_2f055d292ae544279d6996c824af60dd~mv2.png/v1/fill/w_902,h_595,al_c,q_90,usm_0.66_1.00_0.01/0d6674_2f055d292ae544279d6996c824af60dd~mv2.webp);
 }
 .flex-centered {
   display: flex;
@@ -654,7 +653,7 @@ form.itemForm{
         margin-top: 10px;
         width: 100%;
 }
-form.itemForm fieldset.buttn,{
+fieldset.button{
             display: flex;
     width: 100%;
     justify-content: space-between;
@@ -719,7 +718,7 @@ input{
         background-color: transparent;
         border: 2px solid black;
         margin: 0.5em;
-        width: 194px;
+        width: calc(100% - 6px);
 }
 
 .itemForm{
@@ -733,6 +732,15 @@ display: grid;
 
 .info .details{
         text-align: left;
+}
+@media only screen and (max-width: 1325px){
+        fieldset.button{
+                display: flex;
+                flex-direction: column;
+        }
+        button{
+                width: 100%;
+        };
 }
 @media only screen and (max-width: 600px){
 #home{
