@@ -11,8 +11,8 @@ const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
 
 const PayingForm = () => {
   const price = useSelector(cartSelector);
-  if (price){
-          return <h3>Please buy some stuff before Paying</h3>
+  if (!price){
+          return <h3>Where the money at??</h3>
   }
   return (
     <div id="payingForm" className="rectangle">

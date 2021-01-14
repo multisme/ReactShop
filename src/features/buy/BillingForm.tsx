@@ -22,7 +22,6 @@ const BillingForm = () => {
   const history = useHistory();
   const location = useLocation();
 
-  console.log("pol", location);
   const handleClick = (e: any) => {
           const valid = checkValidFields(fields);
           console.log(fields, valid);
@@ -36,13 +35,13 @@ const BillingForm = () => {
     <div id="BillingForm" className={"rectangle"} onSubmit={handleClick}>
       <form>
         <label>
-          Name: <input type="text" onChange={handleFieldChange} id="Name" required/>
+          Billing Name: <input type="text" onChange={handleFieldChange} id="Name" required/>
         </label>
         <label>
           Email: <input type="email" onChange={handleFieldChange} id="email"  required/>
         </label>
         <label>
-          Address: <input type="text" onChange={handleFieldChange} id="address" required/>{" "}
+          Billing Address: <input type="text" onChange={handleFieldChange} id="address" required/>{" "}
         </label>
         <label>
           City: <input type="text" onChange={handleFieldChange} id="city" required/>

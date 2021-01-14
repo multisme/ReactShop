@@ -19,7 +19,6 @@ describe("showcaseContainer", () => {
                         const mock = jest.spyOn(redux, 'useSelector');
                         mock.mockImplementation(() => ({ 
                                 selected: null
-                              //  selected : {id: 2, name: 3, quantity: 6, price: 8}
                         }));
                         const component = mount(
                                 <Router>

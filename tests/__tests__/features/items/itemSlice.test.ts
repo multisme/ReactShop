@@ -12,6 +12,7 @@ import reducer, {
   getItemsFailure,
   getItemsSuccess,
   itemsSelector,
+  itemPageSelector,
   itemListState,
 } from "features/items/itemsSlice";
 
@@ -49,8 +50,8 @@ describe("itemSlice", () => {
     });
   });
 
-  describe("selector", () => {
-    it("returns an empty array when ther are no items", () => {
+  describe("selectors", () => {
+    it("returns an empty array when ther are no items on itemsSelector", () => {
       const initialState = {
         loading: false,
         hasError: false,
@@ -60,7 +61,7 @@ describe("itemSlice", () => {
       expect(items).toEqual(initialState);
     });
 
-    it("returns an empty array when there are a lot of items", () => {
+    it("returns an empty array when there are a lot of items on itemsSelector", () => {
       const initialState = {
         loading: false,
         hasError: false,
@@ -69,7 +70,27 @@ describe("itemSlice", () => {
       const items = itemsSelector({ items: initialState });
       expect(items).toEqual(initialState);
     });
-  });
+
+    it("returns an empty array when ther are no items corresponding on itemPageSelector", () => {
+     let state1 = {
+        loading: false,
+        hasError: false,
+        items: [],
+      } as itemListState;
+      const items1 = itemPageSelector({ items: state1}, "2");
+      expect(items1).toEqual([]);
+ 
+      let state2 = {
+        loading: false,
+        hasError: false,
+        items: [
+                {id:3, name: "polo", quantity: 4, price: 6}
+        ],
+      } as itemListState;
+      const items2 = itemPageSelector({ items: state2}, "2");
+      expect(items2).toEqual([]);
+    });
+    });
 
   describe("async actions", () => {
     const middlewares = [thunk];

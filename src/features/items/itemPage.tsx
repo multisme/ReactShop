@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {Link} from "react-router-dom";
 import {
         useHistory,
         useParams
@@ -31,21 +32,17 @@ const ItemPage = ()=>{
                 );
         }
        
-        const handleClick = (e: any) => {
+        const handleSubmit = (e: any) => {
                 e.preventDefault();
-                if (e.target.id == "addToCart"){
-                        console.log("dispatch");
+                if (fields.quantity.content > 0){
                         dispatch(addToCart({
                         id: parseInt(id),
                         quantity: fields.quantity.content,
                         price: item.price}));
-                 } else {
-                         history.push("/bill")
-                 }
-        }
-        
-        const handleSubmit = (e: any) => {
-                e.preventDefault();
+                        history.push("/bill")
+                } else {
+                        alert("Please choose something before checkout");
+                }
         }
         
         const range = [...Array(item.quantity + 1).keys()]
@@ -57,13 +54,16 @@ const ItemPage = ()=>{
         <div className="itemPage flex-centered">
                 <div className="panel left flex-centered">
                 <div className="mainImage">
-  <img src="https://teamtijger.nl/wp-content/uploads/2018/06/zwarte-trui-transparant-300x300.png)" />;
+                <img src="https://teamtijger.nl/wp-content/uploads/2018/06/zwarte-trui-transparant-300x300.png)" />;
                 </div>
                 </div>
                 <div className="panel right">
                         <div className="info">
                                 <div className="name">
                                 {item.name}
+                                </div>
+                                <div className="price">
+                                {item.price}
                                 </div>
                                 <div className="details">
                                 {item.details}
@@ -75,11 +75,13 @@ const ItemPage = ()=>{
                         {availableQuantities}
                 </select>
                 </fieldset>
-                <fieldset>
-                <button id="addToCart" className="buy" onClick={handleClick}>
-                        ADD TO CART
+                <fieldset className="button">
+                <Link to="/">
+                <button id="goBack" className="buy" >
+                        GO BACK
                 </button>
-                <button id="checkout" className="checkout" onClick={handleClick}>
+                </Link>
+                <button type="submit" id="checkout" className="checkout">
                         CHECKOUT
                 </button>
                 </fieldset>

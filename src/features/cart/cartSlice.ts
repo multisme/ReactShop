@@ -24,7 +24,7 @@ const cartSlice = createSlice({
         initialState,
         reducers: {
                 addToCart: (state, { payload }: PayloadAction<cartItem> ) => {
-                        state.selection.push(payload) 
+                                state.selection.push(payload) 
                 },
                 removeFromCart: (state, { payload }: PayloadAction<cartItem>) => {
                         state.selection = state.selection.filter(

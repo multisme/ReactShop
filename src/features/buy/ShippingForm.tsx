@@ -39,7 +39,7 @@ const ShippingForm = () => {
           Email: <input type="email" onChange={handleFieldChange} id="email" required />{" "}
         </label>
         <label>
-          Address: <input type="text" onChange={handleFieldChange} id="address" required/>{" "}
+          Shipping Address: <input type="text" onChange={handleFieldChange} id="address" required/>{" "}
         </label>
         <label>
           City: <input type="text" onChange={handleFieldChange} id="city"required/>{" "}

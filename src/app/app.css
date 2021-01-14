@@ -654,8 +654,10 @@ form.itemForm{
         margin-top: 10px;
         width: 100%;
 }
-form.itemForm fieldset{
-display: grid;
+form.itemForm fieldset.buttn,{
+            display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 form.itemForm fieldset.quantity select{
@@ -721,7 +723,6 @@ input{
 }
 
 .itemForm{
-        justify-content: center;
 align-items: center;
 display: grid;
 }
