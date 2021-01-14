@@ -19,9 +19,12 @@ interface itemProps{
 item: itemData
 }
 
+const iconPath = process.env.PUBLIC_URL + '/assets/images/';
+
+console.log("cin", iconPath);
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
-                        <div className="itemCard"  key={item.id}>
+                        <div className="itemCard"  key={item.id} style={{backgroundImage: "url("  +item.url +")"}}>
                         <Link key={item.id}to={`/products/${item.id}`}>
                         <ItemDisplay item={item}/>
                         </Link>
@@ -58,7 +61,7 @@ export const ItemDisplay = ({item}: itemProps) => {
                         </div>
                         <div className={"detailsSmall flex-centered"}>
                         <div className="name">{item.name}</div>
-                        <div className={"price"}>{item.price}</div>
+                        <div className={"price"}>{item.price}€</div>
                         </div>
                         </li>
                );

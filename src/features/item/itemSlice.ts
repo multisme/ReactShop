@@ -7,6 +7,7 @@ export interface itemData {
   name: string;
   price?: number;
   details?: string;
+  url?: string;
 }
 
 export const initialState = {

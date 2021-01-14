@@ -53,7 +53,7 @@ const ItemPage = ()=>{
         <div className="itemPage flex-centered">
                 <div className="panel left flex-centered">
                 <div className="mainImage">
-                <img src="https://teamtijger.nl/wp-content/uploads/2018/06/zwarte-trui-transparant-300x300.png)" />;
+                <img src={item.url} />;
                 </div>
                 </div>
                 <div className="panel right">
@@ -62,7 +62,7 @@ const ItemPage = ()=>{
                                 {item.name}
                                 </div>
                                 <div className="price">
-                                {item.price}
+                                {item.price}€
                                 </div>
                                 <div className="details">
                                 {item.details}
