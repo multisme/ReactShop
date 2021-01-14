@@ -13,7 +13,7 @@ const ShowcaseContainer = () => {
   const dispatch = useDispatch();
 
   const { selected } = useSelector((state: RootState) => state.showcase);
-
+console.log(selected);
   const renderedElement =
     selected == null ? (
         <ShowcaseTitle />

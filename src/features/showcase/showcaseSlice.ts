@@ -17,7 +17,7 @@ const showcaseSlice = createSlice({
       state.selected = payload;
     },
     removeSelectedItem: (state) => {
-  //    state.selected = null;
+      state.selected = null;
       console.log(state.selected);
     },
   },

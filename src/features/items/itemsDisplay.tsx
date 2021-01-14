@@ -43,7 +43,8 @@ export const ItemDisplay = ({item}: itemProps) => {
         const dispatch = useDispatch();
 
         const selectItem = (e: any) => {
-        //        e.preventDefault();
+                console.log("mouse enter");
+                e.preventDefault();
                 dispatch( updateSelectedItem(item) );
         }
 

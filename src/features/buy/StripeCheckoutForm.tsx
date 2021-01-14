@@ -76,7 +76,7 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
       />
         <Link to="/thank">
       <button type="submit" disabled={!stripe}>
-        Pay {total}
+        Pay {total}€
       </button>
         </Link>
         <Link to="/home">

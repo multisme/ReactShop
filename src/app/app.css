@@ -456,13 +456,12 @@ transform: translateY(50%);
 }
 
 .itemCard {
-  width: 30%;
+  width: 20%;
   margin: 1em 0;
   flex-direction: column;
   position: relative;
   background-size: cover;
-  background-position: -150% -150%;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
 .itemCard li{
@@ -501,7 +500,7 @@ align-items: start;
 }
 
 .showcasePicture img{
-        height: 100%;
+        width: 100%;
 }
 
 section {
