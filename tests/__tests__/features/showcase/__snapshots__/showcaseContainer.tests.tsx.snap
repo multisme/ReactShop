@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`showcaseContainer render title on if selected is null 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <ShowcaseContainer>
+        <div
+          className="showcaseContainer green-border flex-centered"
+        >
+          <ShowcaseTitle>
+            <div
+              className="header"
+            >
+              <section>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+                <p>
+                  THIS IS A SHOPPING WEBSITE
+                </p>
+              </section>
+            </div>
+          </ShowcaseTitle>
+        </div>
+      </ShowcaseContainer>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
