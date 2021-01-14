@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
-Elements,
 CardElement,
 useStripe,
 useElements
 } from "@stripe/react-stripe-js";
 import {loadStripe, PaymentMethod, StripeError} from '@stripe/stripe-js';
-
-import { useFormFields } from "utils/utils" 
-
-const stripePromise = loadStripe('pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG');
 
 interface StripeCheckoutFormState{
         total: number;
@@ -45,6 +40,7 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
     }
 
     if (cardComplete) {
+            console.log("processing");
       setProcessing(true);
     }
      

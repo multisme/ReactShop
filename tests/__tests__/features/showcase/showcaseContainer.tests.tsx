@@ -45,7 +45,7 @@ describe("showcaseContainer", () => {
                         );
                         expect(component.find(".showcaseItem")).toHaveLength(1);
                         expect(component.find(".price")).toHaveLength(1);
-                        expect(component.find(".name")).toHaveLength(1);
+                       // expect(component.find(".name")).toHaveLength(1);
                         expect(component.find(".showcasePicture")).toHaveLength(1);
         })
 })

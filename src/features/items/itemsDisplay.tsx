@@ -21,7 +21,6 @@ item: itemData
 
 const iconPath = process.env.PUBLIC_URL + '/assets/images/';
 
-console.log("cin", iconPath);
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
                         <div className="itemCard"  key={item.id} style={{backgroundImage: "url("  +item.url +")"}}>
@@ -43,8 +42,6 @@ export const ItemDisplay = ({item}: itemProps) => {
         const dispatch = useDispatch();
 
         const selectItem = (e: any) => {
-                console.log("mouse enter");
-                e.preventDefault();
                 dispatch( updateSelectedItem(item) );
         }
 

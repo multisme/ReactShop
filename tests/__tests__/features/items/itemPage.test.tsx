@@ -51,7 +51,7 @@ describe("itemPage", () =>{
                 </MemoryRouter>
                );
                expect(component.find('.name').text()).toEqual(item.name);
-               expect(component.find('.price').text()).toEqual(String(item.price));
+               expect(component.find('.price').text()).toEqual(String(item.price) + "€");
                expect(component.find('.details').text()).toEqual(item.details);
                expect(component.find('option').length).toEqual(item.quantity + 1);
         })
@@ -87,6 +87,7 @@ describe("itemPage", () =>{
                )
                component.find('form').simulate("submit");
                expect(mockaddToCart).toHaveBeenCalled()
-               */flex-directionflex-direction
             })
+        */
+       })
        })

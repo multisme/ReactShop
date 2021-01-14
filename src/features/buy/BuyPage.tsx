@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import ShippingForm from "features/buy/ShippingForm";
 import BillingForm from "features/buy/BillingForm";

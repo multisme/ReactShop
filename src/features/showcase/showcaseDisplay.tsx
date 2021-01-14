@@ -15,7 +15,7 @@ export const ShowcaseItemDisplay = ({ item }: ShowcaseItemDisplayProps) => {
       <span>{item.price}€</span>
       </div>
       <div className={"showcasePicture border-green"}>
-        <img src={item.url}/>
+        <img src={item.url} alt={item.name}/>
       </div>
       <div className="ShowcaseDetails">
       </div>

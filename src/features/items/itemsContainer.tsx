@@ -1,5 +1,5 @@
-import React, { Dispatch, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import { itemsSelector } from "features/items/itemsSlice";
 
@@ -8,7 +8,6 @@ import { ItemListDisplay } from "features/items/itemsDisplay";
 import "features/items/itemsContainer.css";
 
 export const ItemsContainer = () => {
-  const dispatch: Dispatch<any> = useDispatch();
 
   const { hasError, loading, items } = useSelector(itemsSelector);
  

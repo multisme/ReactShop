@@ -1,6 +1,4 @@
-import React from "react";
 import {
-        createSelector,
         createSlice,
         PayloadAction
 } from "@reduxjs/toolkit";
@@ -28,7 +26,7 @@ const cartSlice = createSlice({
                 },
                 removeFromCart: (state, { payload }: PayloadAction<cartItem>) => {
                         state.selection = state.selection.filter(
-                                item => item.id != payload.id
+                                item => item.id !== payload.id
                         )
                 }
         }

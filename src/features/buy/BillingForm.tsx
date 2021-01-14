@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
         Link,
         useHistory,
-        useLocation
         } from "react-router-dom";
 
 
@@ -20,12 +19,11 @@ const BillingForm = () => {
     postalCode: {}
   });
   const history = useHistory();
-  const location = useLocation();
 
   const handleClick = (e: any) => {
           const valid = checkValidFields(fields);
           console.log(fields, valid);
-          if (valid == true){
+          if (valid === true){
                 history.push("/ship", [fields])
           }
           e.preventDefault()

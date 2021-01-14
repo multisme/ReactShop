@@ -6,8 +6,6 @@ import {
         useParams
  } from "react-router-dom";
 
-import { RootState } from "app/rootReducer";
-import {itemData} from "features/item/itemSlice";
 import {itemPageSelector} from "features/items/itemsSlice";
 import {addToCart} from "features/cart/cartSlice";
 
@@ -25,7 +23,7 @@ const ItemPage = ()=>{
         const dispatch = useDispatch();
         const [item] = useSelector((state) =>itemPageSelector(state, id));
         const history = useHistory();
-        if (id == undefined || item == undefined){
+        if (id === undefined || item === undefined){
                 return (
                 <h3>Error</h3>
                 );
@@ -53,7 +51,7 @@ const ItemPage = ()=>{
         <div className="itemPage flex-centered">
                 <div className="panel left flex-centered">
                 <div className="mainImage">
-                <img src={item.url} />;
+                <img src={item.url} alt={item.name}/>;
                 </div>
                 </div>
                 <div className="panel right">

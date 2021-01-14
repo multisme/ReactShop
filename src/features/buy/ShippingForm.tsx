@@ -1,5 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
-import {useDispatch} from "react-redux";
+import React from "react";
 import {
         Link,
         useHistory
@@ -23,7 +22,7 @@ const ShippingForm = () => {
         
   const handleClick = (e: any) => {
           const valid = checkValidFields(fields);
-          if (valid == true){
+          if (valid === true){
                 history.push("/pay", [fields])
           }
           e.preventDefault();

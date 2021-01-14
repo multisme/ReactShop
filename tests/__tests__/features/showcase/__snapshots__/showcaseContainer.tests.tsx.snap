@@ -38,7 +38,7 @@ exports[`showcaseContainer render title on if selected is null 1`] = `
     >
       <ShowcaseContainer>
         <div
-          className="showcaseContainer green-border flex-centered"
+          className="showcaseContainer flex-centered"
         >
           <ShowcaseTitle>
             <div

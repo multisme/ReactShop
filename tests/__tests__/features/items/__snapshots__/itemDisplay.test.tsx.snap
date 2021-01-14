@@ -104,6 +104,11 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
           <div
             className="itemCard"
             key="3"
+            style={
+              Object {
+                "backgroundImage": "url(undefined)",
+              }
+            }
           >
             <Link
               key="3"
@@ -147,6 +152,7 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
                           className="price"
                         >
                           3
+                          €
                         </div>
                       </div>
                     </li>
@@ -223,6 +229,11 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
           <div
             className="itemCard"
             key="3"
+            style={
+              Object {
+                "backgroundImage": "url(undefined)",
+              }
+            }
           >
             <Link
               key="3"
@@ -266,6 +277,7 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
                           className="price"
                         >
                           3
+                          €
                         </div>
                       </div>
                     </li>
@@ -277,6 +289,11 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
           <div
             className="itemCard"
             key="4"
+            style={
+              Object {
+                "backgroundImage": "url(undefined)",
+              }
+            }
           >
             <Link
               key="4"
@@ -320,6 +337,7 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
                           className="price"
                         >
                           2
+                          €
                         </div>
                       </div>
                     </li>
@@ -401,6 +419,7 @@ exports[`itemDisplay component is rendered 1`] = `
               className="price"
             >
               3
+              €
             </div>
           </div>
         </li>

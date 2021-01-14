@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {useSelector} from "react-redux";
 
-import { Elements, CardElement } from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 import {cartSelector} from "features/cart/cartSlice";
