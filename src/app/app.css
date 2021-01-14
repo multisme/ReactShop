@@ -435,6 +435,7 @@ transform: translateY(50%);
 }
 
 .ListContainer{
+       margin-left: 20px;
        overflow: scroll; 
        scrollbar-width: none;
 }
@@ -750,6 +751,9 @@ display: grid;
 }
 
 @media only screen and (max-width: 1200px){
+        .showcaseContainer{
+                display: none;
+        }
         .itemCard{
                 width:  30%;
         }
