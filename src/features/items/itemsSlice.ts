@@ -45,7 +45,7 @@ export const itemsSelector = (state: { items: itemListState }) =>
 
 export const itemPageSelector = createSelector(
         (state) => state.items.items,
-        (_: any, id: string | undefined) => id != undefined ? parseInt(id) : -1 ,
+        (_: any, id: string | undefined) => id !== undefined ? parseInt(id) : -1 ,
         (items, id) => items.filter((item: itemData) => item.id === id)
 )
 
