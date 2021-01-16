@@ -10,7 +10,7 @@ export interface cartItem{
 }
 
 export interface cartState {
-        selection: cartItem[];
+        selection: Record<number, cartItem>;
 };
 
 const initialState = {
@@ -21,25 +21,26 @@ const cartSlice = createSlice({
         name: "cart",
         initialState,
         reducers: {
-                addToCart: (state, { payload }: PayloadAction<cartItem> ) => {
-                                state.selection.push(payload) 
+                addToCart: (state, { new_item }: PayloadAction<cartItem> ) => {
+                        const item = state.selection[new_item.id]
+                        if (item !== undefined){
+                              state.selection[new_item.id].quantity += new_item.id
+                               
+                        } else {
+                                state.selection[new_item.id] = new_item; 
+                        }
                 },
-                removeFromCart: (state, { payload }: PayloadAction<cartItem>) => {
-                        state.selection = state.selection.filter(
-                                item => item.id !== payload.id
-                        )
+                removeFromCart: (state, { item_to_remove }: PayloadAction<cartItem>) => {
+                        delete state.selection[item_to_remove.id]
                 }
         }
 })
 
 export const cartSelector = (state: {cart: cartState}) => {
         var price = 0;
-        state.cart.selection.forEach(item => {
-                price += item.price * item.quantity;
-        });
-        if (isNaN(price)){
-                price = 0;
-        }
+        Object.entries(state.cart.selection).forEach(([_id, item]) => {
+                price += item.price * item.quantity
+        })
         return price;
 }
 

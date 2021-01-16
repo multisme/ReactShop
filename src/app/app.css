@@ -753,6 +753,15 @@ display: grid;
         .itemCard{
                 width:  30%;
         }
+#home{
+        grid-template-columns: auto;
+        overflow: scroll;
+        margin-top: 40px;
+}
+.ListContainer{
+        width: 80vw;
+        margin: auto
+}
 }
 
 @media only screen and (max-width: 600px){
