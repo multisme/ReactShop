@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {addToCart, cartItem, cartPageSelector} from "features/cart/cartSlice"
+import {addToCart, cartItem, cartPageSelector, removeFromCart} from "features/cart/cartSlice"
 
 interface cartItemProps{
         item: cartItem
@@ -18,12 +18,18 @@ const CartItem = ({ item }: cartItemProps) => {
                 dispatch(addToCart(item))
         }
 
+        const handleClick = (event: any) => {
+                event.preventDefault();
+                dispatch(removeFromCart(item))
+        }
+
         return (
                 <li className={"cartItem"}>
                         <div className={"picture"}>
                                 <img src={item.url} />
                          </div>
                         <div className={"name"}>{item.name}</div>
+                        <button className={"remove"} onClick={handleClick}>remove</button>
                         <select name="quantity" id="quantity" value={item.id} onChange={handleQuantity}>
                                 {availableQuantities}
                         </select>

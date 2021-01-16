@@ -39,6 +39,7 @@ const cartSlice = createSlice({
                         }
                 },
                 removeFromCart: (state, { payload }: PayloadAction<cartItem>) => {
+                        console.log(payload);
                         delete state.selection[payload.id]
                 }
         }
