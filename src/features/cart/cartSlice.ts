@@ -14,24 +14,24 @@ export interface cartState {
 };
 
 const initialState = {
-        selection: []
+        selection: {}
 } as cartState
 
 const cartSlice = createSlice({
         name: "cart",
         initialState,
         reducers: {
-                addToCart: (state, { new_item }: PayloadAction<cartItem> ) => {
-                        const item = state.selection[new_item.id]
+                addToCart: (state, { payload }: PayloadAction<cartItem> ) => {
+                        const item = state.selection[payload.id]
                         if (item !== undefined){
-                              state.selection[new_item.id].quantity += new_item.id
+                              state.selection[payload.id].quantity += payload.quantity
                                
                         } else {
-                                state.selection[new_item.id] = new_item; 
+                                state.selection[payload.id] = payload; 
                         }
                 },
-                removeFromCart: (state, { item_to_remove }: PayloadAction<cartItem>) => {
-                        delete state.selection[item_to_remove.id]
+                removeFromCart: (state, { payload }: PayloadAction<cartItem>) => {
+                        delete state.selection[payload.id]
                 }
         }
 })

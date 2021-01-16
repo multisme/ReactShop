@@ -16,7 +16,7 @@ describe("cartSlice", () => {
                 let initialSate: cartState;
                 beforeEach(()=>{
                 initialSate = {
-                        selection: []
+                        selection: {}
                 } as cartState
                 })
 
@@ -32,18 +32,18 @@ describe("cartSlice", () => {
                 })
                 it("checks if it adds to cart if cart is empty", () => {
                         const state = reducer(initialSate, addToCart(item));
-                        expect(state.selection).toContain(item)
+                        expect(state.selection).toMatchObject({[item.id] : item})
                 })
                 it("checks if it adds to cart when cart is not empty", () => {
-                        initialSate.selection.push(item)
+                        initialSate.selection[item.id] = item
                         const item2: cartItem = {
                                 id: 4,
                                 quantity: 3,
                                 price: 3
                         }
                         const state = reducer(initialSate, addToCart(item2));
-                        expect(state.selection).toContain(item)
-                        expect(state.selection).toContain(item2)
+                        expect(state.selection).toMatchObject({[item.id] : item})
+                        expect(state.selection).toMatchObject({[item2.id] : item2})
                 })
                 it("checks if it removes from cart when cart is empty", () => {
                         const state = reducer(initialSate, removeFromCart(item));
@@ -51,7 +51,7 @@ describe("cartSlice", () => {
                 });
                 it("checks if it removes from cart when cart is not empty", () => {
                         const newState: cartState = {
-                                selection: [item]
+                                selection: { 3: item}
                         }
                         const state = reducer(initialSate, removeFromCart(item));
                         expect(state).toEqual(initialSate);
@@ -88,24 +88,24 @@ describe("cartSlice", () => {
                let initialState: cartState;
                beforeEach(() => {
                         initialState = {
-                               selection: [
-                                {id:3,quantity: 4,price: 3},
-                                {id:3,quantity: 4,price: 8},
-                                {id:3,quantity: 4,price: 2},
-                                {id:3,quantity: 4,price: 6},
-                                {id:3,quantity: 0,price: 6}
-                               ]
+                               selection: {
+                                1: {id:1,quantity: 4,price: 3},
+                                2: {id:2,quantity: 2,price: 8},
+                                3: {id:3,quantity: 1,price: 2},
+                                4: {id:4,quantity: 3,price: 6},
+                                5: {id:5,quantity: 0,price: 7}
+                               }
                        }
                               
                })
                it("returns on an empty aray", () => {
                        initialState = {
-                               selection: []
+                               selection: {}
                        }
                         expect(cartSelector({cart: initialState})).toEqual(0)
                })
                it("returns the correct price on an array", () =>{
-                        expect(cartSelector({cart: initialState})).toEqual(76)
+                        expect(cartSelector({cart: initialState})).toEqual(48)
                })
         })
 })
