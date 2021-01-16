@@ -6,7 +6,8 @@ import createMockStore from "redux-mock-store";
 import reducer, {
         addToCart,
         cartItem,
-        cartSelector,
+        cartPriceSelector,
+        cartPageSelector,
         cartState,
         removeFromCart
 } from "features/cart/cartSlice";
@@ -49,6 +50,11 @@ describe("cartSlice", () => {
                         const state = reducer(initialSate, removeFromCart(item));
                         expect(state).toEqual(initialSate);
                 });
+                it("checks that if the item exist, the quantity are added", ()=>{
+                        initialSate.selection[item.id] = item
+                        const state = reducer(initialSate, addToCart(item));
+                        expect(state.selection[item.id].quantity).toEqual(item.quantity + item.quantity)
+                })
                 it("checks if it removes from cart when cart is not empty", () => {
                         const newState: cartState = {
                                 selection: { 3: item}
@@ -98,15 +104,32 @@ describe("cartSlice", () => {
                        }
                               
                })
-               it("returns on an empty aray", () => {
+               it("returns nothing on an empty aray", () => {
                        initialState = {
                                selection: {}
                        }
-                        expect(cartSelector({cart: initialState})).toEqual(0)
+                        expect(cartPriceSelector({cart: initialState})).toEqual(0)
                })
                it("returns the correct price on an array", () =>{
-                        expect(cartSelector({cart: initialState})).toEqual(48)
+                        expect(cartPriceSelector({cart: initialState})).toEqual(48)
                })
-        })
-})
+               it("returns a cart of items if there are none", () => {
+                       const cart = [
+                                {id:1,quantity: 4,price: 3},
+                                {id:2,quantity: 2,price: 8},
+                                {id:3,quantity: 1,price: 2},
+                             {id:4,quantity: 3,price: 6},
+                                {id:5,quantity: 0,price: 7}
+                       ]
+                       expect(cartPageSelector({cart: initialState})).toEqual(cart)
+
+                       })
+               it("returns an empty cart is there are none selected", () => {
+                       initialState = {
+                               selection: {}
+                       }
+                       expect(cartPageSelector({cart: initialState})).toEqual([])
+               })
+               })
+ })
 
