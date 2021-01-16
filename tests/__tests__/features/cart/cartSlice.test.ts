@@ -53,7 +53,7 @@ describe("cartSlice", () => {
                         const newState: cartState = {
                                 selection: { 3: item}
                         }
-                        const state = reducer(initialSate, removeFromCart(item));
+                        const state = reducer(newState, removeFromCart(item));
                         expect(state).toEqual(initialSate);
                 })
         })
