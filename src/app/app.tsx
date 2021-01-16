@@ -10,12 +10,12 @@ import {
 } from "react-router-dom";
 
 import Home from "features/home/home";
-import Item from "features/items/itemPage";
+import ItemPage from "features/items/itemPage";
 import ShipPage from "features/buy/ShippingForm";
 import BillPage from "features/buy/BillingForm";
 import PayPage from "features/buy/PayingForm";
 import ThankPage from "features/buy/ThankForm";
-import CartPage from "features/cart/cartPage";
+import CartPage from "features/cart/CartPage";
 
 import "app/app.css";
 
@@ -31,7 +31,7 @@ const App = () => {
   <Router>
     <div className="App">
        <Switch> 
-        <Route path="/products/:id" component={Item}/>
+        <Route path="/products/:id" component={ItemPage}/>
         <Route exact path="/ship" component={ShipPage} />
         <Route exact path="/bill" component={BillPage} />
         <Route exaxt path="/pay" component={PayPage} />

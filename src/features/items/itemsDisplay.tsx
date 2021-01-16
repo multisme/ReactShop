@@ -21,7 +21,7 @@ item: itemData
 
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
-                        <ItemDisplay item={item}/>
+                        <ItemDisplay item={item} key={item.id}/>
                         );
         return (
                         <ul className="itemsList" id="list">

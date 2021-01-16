@@ -101,36 +101,37 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
           className="itemsList"
           id="list"
         >
-          <div
-            className="itemCard"
-            key="3"
-            style={
+          <ItemDisplay
+            item={
               Object {
-                "backgroundImage": "url(undefined)",
+                "id": 3,
+                "name": "testname",
+                "price": 3,
+                "quantity": 4,
               }
             }
+            key="3"
           >
-            <Link
+            <div
+              className="itemCard"
               key="3"
-              to="/products/3"
+              style={
+                Object {
+                  "backgroundImage": "url(undefined)",
+                }
+              }
             >
-              <LinkAnchor
-                href="/products/3"
-                navigate={[Function]}
+              <Link
+                key="3"
+                to="/products/3"
               >
-                <a
+                <LinkAnchor
                   href="/products/3"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                  <ItemDisplay
-                    item={
-                      Object {
-                        "id": 3,
-                        "name": "testname",
-                        "price": 3,
-                        "quantity": 4,
-                      }
-                    }
+                  <a
+                    href="/products/3"
+                    onClick={[Function]}
                   >
                     <li
                       className="flex-centered"
@@ -156,11 +157,11 @@ exports[`ItemListDisplay component is rendered with array of one 1`] = `
                         </div>
                       </div>
                     </li>
-                  </ItemDisplay>
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </ItemDisplay>
         </ul>
       </ItemListDisplay>
     </Provider>
@@ -226,36 +227,37 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
           className="itemsList"
           id="list"
         >
-          <div
-            className="itemCard"
-            key="3"
-            style={
+          <ItemDisplay
+            item={
               Object {
-                "backgroundImage": "url(undefined)",
+                "id": 3,
+                "name": "testname",
+                "price": 3,
+                "quantity": 4,
               }
             }
+            key="3"
           >
-            <Link
+            <div
+              className="itemCard"
               key="3"
-              to="/products/3"
+              style={
+                Object {
+                  "backgroundImage": "url(undefined)",
+                }
+              }
             >
-              <LinkAnchor
-                href="/products/3"
-                navigate={[Function]}
+              <Link
+                key="3"
+                to="/products/3"
               >
-                <a
+                <LinkAnchor
                   href="/products/3"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                  <ItemDisplay
-                    item={
-                      Object {
-                        "id": 3,
-                        "name": "testname",
-                        "price": 3,
-                        "quantity": 4,
-                      }
-                    }
+                  <a
+                    href="/products/3"
+                    onClick={[Function]}
                   >
                     <li
                       className="flex-centered"
@@ -281,41 +283,42 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
                         </div>
                       </div>
                     </li>
-                  </ItemDisplay>
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            className="itemCard"
-            key="4"
-            style={
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </ItemDisplay>
+          <ItemDisplay
+            item={
               Object {
-                "backgroundImage": "url(undefined)",
+                "id": 4,
+                "name": "postname",
+                "price": 2,
+                "quantity": 8,
               }
             }
+            key="4"
           >
-            <Link
+            <div
+              className="itemCard"
               key="4"
-              to="/products/4"
+              style={
+                Object {
+                  "backgroundImage": "url(undefined)",
+                }
+              }
             >
-              <LinkAnchor
-                href="/products/4"
-                navigate={[Function]}
+              <Link
+                key="4"
+                to="/products/4"
               >
-                <a
+                <LinkAnchor
                   href="/products/4"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                  <ItemDisplay
-                    item={
-                      Object {
-                        "id": 4,
-                        "name": "postname",
-                        "price": 2,
-                        "quantity": 8,
-                      }
-                    }
+                  <a
+                    href="/products/4"
+                    onClick={[Function]}
                   >
                     <li
                       className="flex-centered"
@@ -341,11 +344,11 @@ exports[`ItemListDisplay component is rendered with array of some 1`] = `
                         </div>
                       </div>
                     </li>
-                  </ItemDisplay>
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </ItemDisplay>
         </ul>
       </ItemListDisplay>
     </Provider>
@@ -399,30 +402,55 @@ exports[`itemDisplay component is rendered 1`] = `
           }
         }
       >
-        <li
-          className="flex-centered"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+        <div
+          className="itemCard"
+          key="3"
+          style={
+            Object {
+              "backgroundImage": "url(undefined)",
+            }
+          }
         >
-          <div
-            className="picture"
-          />
-          <div
-            className="detailsSmall flex-centered"
+          <Link
+            key="3"
+            to="/products/3"
           >
-            <div
-              className="name"
+            <LinkAnchor
+              href="/products/3"
+              navigate={[Function]}
             >
-              pierre
-            </div>
-            <div
-              className="price"
-            >
-              3
-              €
-            </div>
-          </div>
-        </li>
+              <a
+                href="/products/3"
+                onClick={[Function]}
+              >
+                <li
+                  className="flex-centered"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="picture"
+                  />
+                  <div
+                    className="detailsSmall flex-centered"
+                  >
+                    <div
+                      className="name"
+                    >
+                      pierre
+                    </div>
+                    <div
+                      className="price"
+                    >
+                      3
+                      €
+                    </div>
+                  </div>
+                </li>
+              </a>
+            </LinkAnchor>
+          </Link>
+        </div>
       </ItemDisplay>
     </Provider>
   </Router>
