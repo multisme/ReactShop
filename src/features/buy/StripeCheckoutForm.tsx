@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import {
 CardElement,
@@ -15,6 +15,7 @@ interface StripeCheckoutFormState{
 const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
   const stripe = useStripe(); 
   const elements = useElements();
+  const history = useHistory();
   const [error, setError] = useState<StripeError | null | undefined>(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -22,7 +23,7 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
+        
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
       // form submission until Stripe.js has loaded.
@@ -31,7 +32,6 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
 
     const card = elements.getElement('card')
     if (card == null){
-            console.log("card error");
             return;
     }
     if (error) {
@@ -40,7 +40,6 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
     }
 
     if (cardComplete) {
-            console.log("processing");
       setProcessing(true);
     }
      
@@ -55,10 +54,12 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
     setProcessing(false);
 
     if (payload.error) {
+            console.log("error set");
       setError(payload.error);
     } else {
       if (payload.paymentMethod){
-      setPaymentMethod(payload.paymentMethod);
+        setPaymentMethod(payload.paymentMethod);
+        history.push('/thank');
     }
     }
   };
@@ -70,11 +71,9 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
           },
         }}
       />
-        <Link to="/thank">
       <button type="submit" disabled={!stripe}>
-        Pay {total}€
+        Pay {21}€
       </button>
-        </Link>
         <Link to="/home">
                 <button>CANCEL</button>
         </Link>
