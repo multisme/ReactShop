@@ -1,6 +1,7 @@
 import {Dispatch, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import { fetchItems } from "features/items/itemsSlice";
+import { initCart } from "features/cart/cartSlice";
 
 import {
         BrowserRouter as Router,
@@ -23,6 +24,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchItems());
+    dispatch(initCart());
   }, [dispatch]);
 
   return (

@@ -23,11 +23,17 @@ const cartSlice = createSlice({
         name: "cart",
         initialState,
         reducers: {
+                initCart: (state) => {
+                        const cache = localStorage.getItem("cart");
+                        if (cache !== null){
+                                state.selection = JSON.parse(cache);
+                        }
+                },
                 addToCart: (state, { payload }: PayloadAction<cartItem> ) => {
                         const item = state.selection[payload.id]
                         if (item !== undefined){
+                              localStorage.setItem("cart", JSON.stringify(state.selection));
                               state.selection[payload.id].quantity += payload.quantity
-                               
                         } else {
                                 state.selection[payload.id] = payload; 
                         }
@@ -54,5 +60,6 @@ export default cartSlice.reducer;
 
 export const {
         addToCart,
+        initCart,
         removeFromCart
 } = cartSlice.actions
