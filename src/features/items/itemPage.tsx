@@ -40,7 +40,6 @@ const ItemPage = ()=>{
                                         name: item.name
                                 })
                         );
-                        history.push("/cart")
                 } else {
                         alert("Please choose something before checkout");
                 }
@@ -83,7 +82,7 @@ const ItemPage = ()=>{
                 </button>
                 </Link>
                 <button type="submit" id="checkout" className="checkout">
-                        CHECKOUT
+                        ADD TO CART
                 </button>
                 </fieldset>
                 </form>

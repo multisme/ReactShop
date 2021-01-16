@@ -21,11 +21,7 @@ item: itemData
 
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
-                        <div className="itemCard"  key={item.id} style={{backgroundImage: "url("  +item.url +")"}}>
-                        <Link key={item.id}to={`/products/${item.id}`}>
                         <ItemDisplay item={item}/>
-                        </Link>
-                        </div>
                         );
         return (
                         <ul className="itemsList" id="list">
@@ -48,6 +44,8 @@ export const ItemDisplay = ({item}: itemProps) => {
         }
 
         return (
+                        <div className="itemCard"  key={item.id} style={{backgroundImage: "url("  +item.url +")"}}>
+                        <Link key={item.id}to={`/products/${item.id}`}>
                         <li
                         onMouseEnter={selectItem}
                         onMouseLeave={unselectItem}
@@ -60,5 +58,7 @@ export const ItemDisplay = ({item}: itemProps) => {
                         <div className={"price"}>{item.price}€</div>
                         </div>
                         </li>
+                        </Link>
+                        </div>
                );
 };
