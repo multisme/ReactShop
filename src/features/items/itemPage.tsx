@@ -33,9 +33,13 @@ const ItemPage = ()=>{
                 e.preventDefault();
                 if (fields.quantity.content > 0){
                         dispatch(addToCart({
-                        id: parseInt(id),
-                        quantity: fields.quantity.content,
-                        price: item.price}));
+                                        id: parseInt(id),
+                                        quantity: fields.quantity.content,
+                                        price: item.price,
+                                        url: item.url,
+                                        name: item.name
+                                })
+                        );
                         history.push("/cart")
                 } else {
                         alert("Please choose something before checkout");

@@ -24,7 +24,9 @@ describe("cartSlice", () => {
                         const item: cartItem = {
                                 id: 3,
                                 quantity: 3,
-                                price: 3
+                                price: 3,
+                                url: "well",
+                                name: "testitem"
                         }
                 it("checks if the initialSate is correct", () => {
                         const emptyAction : Action<string> = {type: ""};
@@ -40,7 +42,9 @@ describe("cartSlice", () => {
                         const item2: cartItem = {
                                 id: 4,
                                 quantity: 3,
-                                price: 3
+                                price: 3,
+                                url: "well",
+                                name: "testitem"
                         }
                         const state = reducer(initialSate, addToCart(item2));
                         expect(state.selection).toMatchObject({[item.id] : item})
@@ -67,7 +71,9 @@ describe("cartSlice", () => {
                 const item: cartItem = {
                         id:3,
                         quantity: 4,
-                        price: 3
+                        price: 3,
+                                url: "well",
+                                name: "testitem"
                 }
                 const mockStore = createMockStore();
                 it ("insure that addtocart action is sent", () => {
@@ -95,11 +101,11 @@ describe("cartSlice", () => {
                beforeEach(() => {
                         initialState = {
                                selection: {
-                                1: {id:1,quantity: 4,price: 3},
-                                2: {id:2,quantity: 2,price: 8},
-                                3: {id:3,quantity: 1,price: 2},
-                                4: {id:4,quantity: 3,price: 6},
-                                5: {id:5,quantity: 0,price: 7}
+                                1: {id:1,quantity: 4,price: 3, url:"urlitem1", name:"item1"},
+                                2: {id:2,quantity: 2,price: 8, url:"urlitem1", name:"item1"},
+                                3: {id:3,quantity: 1,price: 2, url:"urlitem1", name:"item1"},
+                                4: {id:4,quantity: 3,price: 6, url:"urlitem1", name:"item1"},
+                                5: {id:5,quantity: 0,price: 7, url:"urlitem1", name:"item1"}
                                }
                        }
                               
@@ -115,11 +121,11 @@ describe("cartSlice", () => {
                })
                it("returns a cart of items if there are none", () => {
                        const cart = [
-                                {id:1,quantity: 4,price: 3},
-                                {id:2,quantity: 2,price: 8},
-                                {id:3,quantity: 1,price: 2},
-                             {id:4,quantity: 3,price: 6},
-                                {id:5,quantity: 0,price: 7}
+                                {id:1,quantity: 4,price: 3, url:"urlitem1", name:"item1"},
+                                {id:2,quantity: 2,price: 8, url:"urlitem1", name:"item1"},
+                                {id:3,quantity: 1,price: 2, url:"urlitem1", name:"item1"},
+                                {id:4,quantity: 3,price: 6, url:"urlitem1", name:"item1"},
+                                {id:5,quantity: 0,price: 7, url:"urlitem1", name:"item1"}
                        ]
                        expect(cartPageSelector({cart: initialState})).toEqual(cart)
 
