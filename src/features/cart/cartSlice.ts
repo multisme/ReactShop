@@ -36,12 +36,16 @@ const cartSlice = createSlice({
         }
 })
 
-export const cartSelector = (state: {cart: cartState}) => {
+export const cartPriceSelector = (state: {cart: cartState}) => {
         var price = 0;
         Object.entries(state.cart.selection).forEach(([_id, item]) => {
                 price += item.price * item.quantity
         })
         return price;
+}
+
+export const cartPageSelector = (state: {cart: cartState}) => {
+        return Object.values(state.cart.selection)
 }
 
 export default cartSlice.reducer;

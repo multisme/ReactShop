@@ -10,10 +10,11 @@ import {
 
 import Home from "features/home/home";
 import Item from "features/items/itemPage";
-import ShipForm from "features/buy/ShippingForm";
-import BillForm from "features/buy/BillingForm";
-import PayForm from "features/buy/PayingForm";
-import ThankForm from "features/buy/ThankForm";
+import ShipPage from "features/buy/ShippingForm";
+import BillPage from "features/buy/BillingForm";
+import PayPage from "features/buy/PayingForm";
+import ThankPage from "features/buy/ThankForm";
+import CartPage from "features/cart/cartPage";
 
 import "app/app.css";
 
@@ -29,10 +30,11 @@ const App = () => {
     <div className="App">
        <Switch> 
         <Route path="/products/:id" component={Item}/>
-        <Route exact path="/ship" component={ShipForm} />
-        <Route exact path="/bill" component={BillForm} />
-        <Route exaxt path="/pay" component={PayForm} />
-        <Route exact path="/thank" component={ThankForm} />
+        <Route exact path="/ship" component={ShipPage} />
+        <Route exact path="/bill" component={BillPage} />
+        <Route exaxt path="/pay" component={PayPage} />
+        <Route exact path="/thank" component={ThankPage} />
+        <Route exact path="/cart" component={CartPage} />
         <Route path="/" component={Home}/>
        </Switch> 
     </div>

@@ -36,7 +36,7 @@ const ItemPage = ()=>{
                         id: parseInt(id),
                         quantity: fields.quantity.content,
                         price: item.price}));
-                        history.push("/bill")
+                        history.push("/cart")
                 } else {
                         alert("Please choose something before checkout");
                 }
