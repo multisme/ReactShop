@@ -56,12 +56,9 @@ describe('itemsContainer', () => {
                                 </redux.Provider>
                         );
                         const h1 = component.find('h1');
-                        const h3 = component.find('h3');
                         expect(h1.length).toEqual(1);
-                        expect(h3.length).toEqual(1);
                         expect(component).toMatchSnapshot();
                         expect(h1.text()).toEqual('Something went wrong with the database')
-                        expect(h3.text()).toEqual('Is the developper payed well enough?')
                 })
                 it("correct component rendered", () => {
                         const mock = jest.spyOn(redux, 'useSelector');

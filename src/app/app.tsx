@@ -38,6 +38,7 @@ const App = () => {
         <Route exaxt path="/pay" component={PayPage} />
         <Route exact path="/thank" component={ThankPage} />
         <Route exact path="/cart" component={CartPage} />
+        <Route exact path="/error" component={ErrorPage} />
         <Route path="/" component={Home}/>
        </Switch> 
     </div>

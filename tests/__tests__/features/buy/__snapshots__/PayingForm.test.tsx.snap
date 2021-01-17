@@ -51,36 +51,33 @@ exports[`PayingFrom renders 1`] = `
                 onSubmit={[Function]}
               >
                 <CardElement
+                  className="stripePaiment"
                   options={
                     Object {
-                      "style": Object {},
+                      "style": Object {
+                        "base": Object {
+                          "fontSize": "16px",
+                        },
+                        "invalid": Object {
+                          "color": "#ffc7ee",
+                          "iconColor": "#ffc7ee",
+                        },
+                      },
                     }
                   }
                 >
-                  <div />
+                  <div
+                    className="stripePaiment"
+                  />
                 </CardElement>
-                <Link
-                  to="/thank"
+                <button
+                  disabled={true}
+                  type="submit"
                 >
-                  <LinkAnchor
-                    href="/thank"
-                    navigate={[Function]}
-                  >
-                    <a
-                      href="/thank"
-                      onClick={[Function]}
-                    >
-                      <button
-                        disabled={true}
-                        type="submit"
-                      >
-                        Pay 
-                        0
-                        €
-                      </button>
-                    </a>
-                  </LinkAnchor>
-                </Link>
+                  Pay 
+                  21
+                  €
+                </button>
                 <Link
                   to="/home"
                 >
