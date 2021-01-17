@@ -1,3 +1,4 @@
+import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {cartItem, cartPageSelector, removeFromCart, updateCartItem} from "features/cart/cartSlice"
 
@@ -22,11 +23,11 @@ const CartItem = ({ item }: cartItemProps) => {
                 event.preventDefault();
                 dispatch(removeFromCart(item))
         }
-        console.log(item.quantity, range);
+
         return (
                 <li className={"cartItem"}>
                         <div className={"picture"}>
-                                <img src={item.url} />
+                                <img src={item.url} alt={"item"}/>
                          </div>
                         <div className={"name"}>{item.name}</div>
                         <button className={"remove"} onClick={handleClick}>remove</button>
@@ -40,8 +41,13 @@ const CartItem = ({ item }: cartItemProps) => {
 
 const CartPage = () => {
         const cartItems = useSelector(cartPageSelector);
+        const history = useHistory();
 
-        if (cartItems.length == 0){
+        const handleSubmit = () => {
+                history.push('./bill');
+        }
+
+        if (cartItems.length === 0){
                 return (<h3> cart is empty </h3>)
         }
 
@@ -52,7 +58,7 @@ const CartPage = () => {
         return (
                 <div className="cartPage">
                <ul className="cartItems">{rendered_list}</ul>
-                <button type="submit" id="checkout" className="checkout">
+                <button type="submit" id="checkout" className="checkout" onSubmit={handleSubmit}>
                         CHECKOUT
                 </button>
                 </div>

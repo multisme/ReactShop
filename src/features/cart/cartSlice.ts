@@ -55,6 +55,7 @@ const cartSlice = createSlice({
 
 export const cartPriceSelector = (state: {cart: cartState}) => {
         var price = 0;
+        console.log(state.cart);
         Object.entries(state.cart.selection).forEach(([_id, item]) => {
                 price += item.price * item.quantity
         })
