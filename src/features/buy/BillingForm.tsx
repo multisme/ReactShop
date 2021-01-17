@@ -6,8 +6,7 @@ import {
 
 
 import {
-        useFormFields,
-        checkValidFields
+        useFormFields
  } from "utils/utils"
 
 const BillingForm = () => {
@@ -20,17 +19,13 @@ const BillingForm = () => {
   });
   const history = useHistory();
 
-  const handleClick = (e: any) => {
-          const valid = checkValidFields(fields);
-          console.log(fields, valid);
-          if (valid === true){
-                history.push("/ship", [fields])
-          }
+  const handleSubmit = (e: any) => {
           e.preventDefault()
+          history.push("/ship", [fields])
   }
         
   return (
-    <div id="BillingForm" className={"rectangle"} onSubmit={handleClick}>
+    <div id="BillingForm" className={"rectangle"} onSubmit={handleSubmit}>
       <form>
         <label>
           Billing Name: <input type="text" onChange={handleFieldChange} id="Name" required/>

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PayingFrom renders 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <PayingForm>
+        <div
+          className="rectangle"
+          id="payingForm"
+        >
+          <Elements
+            stripe={Promise {}}
+          >
+            <StripeCheckoutForm
+              total={0}
+            >
+              <form
+                onSubmit={[Function]}
+              >
+                <CardElement
+                  options={
+                    Object {
+                      "style": Object {},
+                    }
+                  }
+                >
+                  <div />
+                </CardElement>
+                <Link
+                  to="/thank"
+                >
+                  <LinkAnchor
+                    href="/thank"
+                    navigate={[Function]}
+                  >
+                    <a
+                      href="/thank"
+                      onClick={[Function]}
+                    >
+                      <button
+                        disabled={true}
+                        type="submit"
+                      >
+                        Pay 
+                        0
+                        €
+                      </button>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+                <Link
+                  to="/home"
+                >
+                  <LinkAnchor
+                    href="/home"
+                    navigate={[Function]}
+                  >
+                    <a
+                      href="/home"
+                      onClick={[Function]}
+                    >
+                      <button>
+                        CANCEL
+                      </button>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </form>
+            </StripeCheckoutForm>
+          </Elements>
+        </div>
+      </PayingForm>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
