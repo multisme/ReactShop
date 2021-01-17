@@ -8,9 +8,21 @@ useElements
 } from "@stripe/react-stripe-js";
 import {loadStripe, PaymentMethod, StripeError} from '@stripe/stripe-js';
 
+const CARD_OPTIONS = {
+  style: {
+    base: {
+            fontSize: '16px'
+    },
+    invalid: {
+      iconColor: '#ffc7ee',
+      color: '#ffc7ee',
+    },
+  },
+};
+
 interface StripeCheckoutFormState{
         total: number;
-        }
+}
 
 const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
   const stripe = useStripe(); 
@@ -44,12 +56,7 @@ const StripeCheckoutForm = ({total}: StripeCheckoutFormState) => {
   }
         return ( 
             <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          style: {
-          },
-        }}
-      />
+      <CardElement options={CARD_OPTIONS} className={"stripePaiment"}/>
       <button type="submit" disabled={!stripe}>
         Pay {21}€
       </button>

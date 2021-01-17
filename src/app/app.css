@@ -802,4 +802,7 @@ display: grid;
 }
 }
 
-
+.stripePaiement{
+        width: 200px;
+        margin: auto;
+}
