@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThankForm rendets 1`] = `
+<div
+  className="rectangle"
+>
+  <h3>
+    Thank You
+  </h3>
+</div>
+`;

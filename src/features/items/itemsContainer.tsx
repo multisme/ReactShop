@@ -13,9 +13,8 @@ export const ItemsContainer = () => {
  
   if (hasError) {
     return (
-      <div>
-        <h1>Something went wrong with the database</h1>
-        <h3>Is the developper payed well enough?</h3>
+      <div style={{fontSize: "30px"}}>
+        <h1>Something went wrong with the backend</h1>
       </div>
     );
   }

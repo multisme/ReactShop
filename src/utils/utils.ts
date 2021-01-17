@@ -1,29 +1,28 @@
 import { useState } from "react"
 
 export interface FormField{
-        name: string;
+        content: string;
         status: boolean;
 }
 
-export function useFormFields(initialState: any) {
+export function useFormFields(initialState: any){
+
         const [fields, setValues] = useState(initialState);
 
         return [
                 fields,
                 function (event: any) {
-                        console.log(fields, event.target, event.currentTarget.validity.valid);
                         setValues({
                                 ...fields,
                                 [event.target.id]: { 
-                                        content: event.currentTarget.value,
-                                        status: event.currentTarget.validity.valid}
+                                content: event.currentTarget.value,
+                                status: event.currentTarget.validity.valid}
                         });
-                        console.log(fields);
                 },
         ];
 }
 
-export function checkValidFields(fields: any) {
+export function checkValidFields(fields: Record<string, FormField>) {
         for (var name in fields){
                 if (!fields[name].status){
                         return false;

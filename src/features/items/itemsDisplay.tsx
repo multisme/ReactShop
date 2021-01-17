@@ -19,8 +19,6 @@ interface itemProps{
 item: itemData
 }
 
-const iconPath = process.env.PUBLIC_URL + '/assets/images/';
-
 export const ItemListDisplay = ({ items }: itemListProps) => {
         const renderedlist = items.map((item: itemData) =>
                         <div className="itemCard"  key={item.id} style={{backgroundImage: "url("  +item.url +")"}}>

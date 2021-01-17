@@ -21,10 +21,7 @@ const ShippingForm = () => {
   const history = useHistory();
         
   const handleClick = (e: any) => {
-          const valid = checkValidFields(fields);
-          if (valid === true){
                 history.push("/pay", [fields])
-          }
           e.preventDefault();
   }
 
