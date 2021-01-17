@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   cartItem,
   cartPageSelector,
+  cartPriceSelector,
   removeFromCart,
   updateCartItem,
 } from "features/cart/cartSlice";
@@ -13,9 +14,10 @@ interface cartItemProps {
 }
 
 const CartItem = ({ item }: cartItemProps) => {
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(item.quantity * item.price);
   const [quantity, setQuantity] = useState(item.quantity);
   const dispatch = useDispatch();
+
   const range = [...Array(item.quantity + 1).keys()];
   const availableQuantities = range.map((i) => (
     <option value={i} key={i}>
@@ -25,9 +27,10 @@ const CartItem = ({ item }: cartItemProps) => {
 
   const handleQuantity = (event: any) => {
     event.preventDefault();
-    const new_quantity = event.currentTarget.value;
+    const new_quantity = parseInt(event.currentTarget.value);
     setQuantity(new_quantity);
-    setPrice(item.price * new_quantity)
+    setPrice(item.price * new_quantity);
+    dispatch(updateCartItem({id: item.id, quantity: new_quantity}))
   };
 
   const handleClick = (event: any) => {
@@ -40,13 +43,13 @@ const CartItem = ({ item }: cartItemProps) => {
       <div className={"picture"}>
         <img src={item.url} alt={"item"} />
       </div>
-      <div className={"cartItemHeader"}>
+      <div className={"cartItemHeader flex-betweened"}>
         <div className={"name"}>{item.name}</div>
-        <button className={"remove"} onClick={handleClick}>
+        <div className={"remove"} onClick={handleClick}>
           remove
-        </button>
+        </div>
       </div>
-      <div className={"cartItemBody"}>
+      <div className={"cartItemBody flex-betweened"}>
         <div className={"details"}></div>
         <div className={"priceCalculator"}>
           <select
@@ -66,10 +69,13 @@ const CartItem = ({ item }: cartItemProps) => {
 
 const CartPage = () => {
   const cartItems = useSelector(cartPageSelector);
+  const total = useSelector(cartPriceSelector);
+
   const history = useHistory();
 
-  const handleSubmit = () => {
-    history.push("./bill");
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    history.push("/bill");
   };
 
   if (cartItems.length === 0) {
@@ -80,15 +86,14 @@ const CartPage = () => {
     <CartItem item={item} key={item.id} />
   ));
   return (
-    <div className="cartPage">
+    <div className="cartPage flex-centered">
       <ul className="cartItems">{rendered_list}</ul>
-      <div className="cartTotal">
-      </div>
+      <div className="cartTotal">{total}</div>
       <button
         type="submit"
         id="checkout"
         className="checkout"
-        onSubmit={handleSubmit}
+        onClick={handleSubmit}
       >
         CHECKOUT
       </button>

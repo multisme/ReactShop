@@ -5,7 +5,7 @@ export interface itemData {
   id: number | undefined;
   quantity: number;
   name: string;
-  price?: number;
+  price: number;
   details?: string;
   url?: string;
 }

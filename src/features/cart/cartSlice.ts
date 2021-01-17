@@ -42,7 +42,11 @@ const cartSlice = createSlice({
                         delete state.selection[payload.id]
                         localStorage.setItem("cart", JSON.stringify(state.selection));
                 },
-                updateCartItem: (state, { payload }: PayloadAction<cartItem>) => {
+                updateCartItem: (state, { payload }: PayloadAction<{id: number, quantity: number}>) => {
+                        if (state.selection[payload.id] === undefined){
+                                console.log("undefined");
+                                return;
+                        }
                         if (payload.quantity === 0){
                                 delete state.selection[payload.id]
                         } else {
