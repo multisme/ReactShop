@@ -34,7 +34,7 @@ const ItemPage = ()=>{
                 if (fields.quantity.content > 0){
                         dispatch(addToCart({
                                         id: parseInt(id),
-                                        quantity: fields.quantity.content,
+                                        quantity: parseInt(fields.quantity.content),
                                         price: item.price,
                                         url: item.url,
                                         name: item.name
