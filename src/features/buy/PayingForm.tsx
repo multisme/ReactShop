@@ -6,7 +6,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import {cartPriceSelector} from "features/cart/cartSlice";
 import StripeCheckoutForm from "features/buy/StripeCheckoutForm";
-const stripePromise = loadStripe("pk_live_b9FZW8IgpMKGbu76zE11K3WZ00IoRtu7BN");
+const stripePromise = loadStripe("pk_test_esdk3EP8hqcjKThBW7kK36Vv00Ah7Cskxb");
 
 
 const PayingForm = () => {
