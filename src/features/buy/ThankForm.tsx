@@ -1,9 +1,14 @@
-import React from "react";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 import {useHistory} from "react-router-dom";
+
+import{emptyCart} from "features/cart/cartSlice";
 
 const ThankForm = () => {
         const history = useHistory();
+        const dispatch = useDispatch();
 
+        useEffect(()=> { dispatch(emptyCart) })
         setTimeout(() => {
                 history.push("./")},
                 15000

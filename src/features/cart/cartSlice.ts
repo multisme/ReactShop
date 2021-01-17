@@ -53,6 +53,9 @@ const cartSlice = createSlice({
                                 state.selection[payload.id].quantity = payload.quantity; 
                         }
                         localStorage.setItem("cart", JSON.stringify(state.selection));
+                },
+                emptyCart: (state) => {
+                        state.selection = {};
                 }
         }
 })
@@ -76,5 +79,6 @@ export const {
         addToCart,
         initCart,
         removeFromCart,
-        updateCartItem
+        updateCartItem,
+        emptyCart
 } = cartSlice.actions
