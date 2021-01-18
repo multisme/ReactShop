@@ -36,7 +36,7 @@ const ItemPage = () => {
       );
       history.push("/cart");
     } else {
-      alert("Please choose something before checkout");
+      alert("Please select some quantities");
     }
   };
 
@@ -51,13 +51,15 @@ const ItemPage = () => {
     <div className="itemPage flex-centered">
       <div className="panel left flex-centered">
         <div className="mainImage">
-          <img src={item.url} alt={item.name} />;
+          <img src={item.url} alt={item.name} />
         </div>
       </div>
       <div className="panel right">
         <div className="info">
-          <div className="name">{item.name}</div>
-          <div className="price">{item.price}€</div>
+          <div className="info_header">
+            <div className="name">{item.name}</div>
+            <div className="price">{item.price}€</div>
+          </div>
           <div className="details">{item.details}</div>
         </div>
         <form className="itemForm" onSubmit={handleSubmit}>
