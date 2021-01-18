@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cartPage renders 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CartPage>
+    <div
+      className="cartPage flex-centered"
+    >
+      <ul
+        className="cartItems"
+      >
+        <CartItem
+          item={
+            Object {
+              "id": 2,
+              "name": "item2",
+              "price": 1,
+              "quantity": 8,
+              "url": "item2Picture",
+            }
+          }
+          key="2"
+        >
+          <li
+            className="cartItem"
+          >
+            <div
+              className="picture"
+            >
+              <img
+                alt="item"
+                src="item2Picture"
+              />
+            </div>
+            <div
+              className="cartItemHeader flex-betweened"
+            >
+              <div
+                className="name"
+              >
+                item2
+              </div>
+              <div
+                className="remove"
+                onClick={[Function]}
+              >
+                remove
+              </div>
+            </div>
+            <div
+              className="cartItemBody flex-betweened"
+            >
+              <div
+                className="details"
+              />
+              <div
+                className="priceCalculator"
+              >
+                <select
+                  id="quantity"
+                  name="quantity"
+                  onChange={[Function]}
+                  value={8}
+                >
+                  <option
+                    key="0"
+                    value={0}
+                  >
+                    0
+                  </option>
+                  <option
+                    key="1"
+                    value={1}
+                  >
+                    1
+                  </option>
+                  <option
+                    key="2"
+                    value={2}
+                  >
+                    2
+                  </option>
+                  <option
+                    key="3"
+                    value={3}
+                  >
+                    3
+                  </option>
+                  <option
+                    key="4"
+                    value={4}
+                  >
+                    4
+                  </option>
+                  <option
+                    key="5"
+                    value={5}
+                  >
+                    5
+                  </option>
+                  <option
+                    key="6"
+                    value={6}
+                  >
+                    6
+                  </option>
+                  <option
+                    key="7"
+                    value={7}
+                  >
+                    7
+                  </option>
+                  <option
+                    key="8"
+                    value={8}
+                  >
+                    8
+                  </option>
+                </select>
+                <div
+                  className="price"
+                >
+                  8
+                </div>
+              </div>
+            </div>
+          </li>
+        </CartItem>
+        <CartItem
+          item={
+            Object {
+              "id": 3,
+              "name": "item1",
+              "price": 4,
+              "quantity": 4,
+              "url": "item1Picture",
+            }
+          }
+          key="3"
+        >
+          <li
+            className="cartItem"
+          >
+            <div
+              className="picture"
+            >
+              <img
+                alt="item"
+                src="item1Picture"
+              />
+            </div>
+            <div
+              className="cartItemHeader flex-betweened"
+            >
+              <div
+                className="name"
+              >
+                item1
+              </div>
+              <div
+                className="remove"
+                onClick={[Function]}
+              >
+                remove
+              </div>
+            </div>
+            <div
+              className="cartItemBody flex-betweened"
+            >
+              <div
+                className="details"
+              />
+              <div
+                className="priceCalculator"
+              >
+                <select
+                  id="quantity"
+                  name="quantity"
+                  onChange={[Function]}
+                  value={4}
+                >
+                  <option
+                    key="0"
+                    value={0}
+                  >
+                    0
+                  </option>
+                  <option
+                    key="1"
+                    value={1}
+                  >
+                    1
+                  </option>
+                  <option
+                    key="2"
+                    value={2}
+                  >
+                    2
+                  </option>
+                  <option
+                    key="3"
+                    value={3}
+                  >
+                    3
+                  </option>
+                  <option
+                    key="4"
+                    value={4}
+                  >
+                    4
+                  </option>
+                </select>
+                <div
+                  className="price"
+                >
+                  16
+                </div>
+              </div>
+            </div>
+          </li>
+        </CartItem>
+        <CartItem
+          item={
+            Object {
+              "id": 5,
+              "name": "item3",
+              "price": 12,
+              "quantity": 4,
+              "url": "item3Picture",
+            }
+          }
+          key="5"
+        >
+          <li
+            className="cartItem"
+          >
+            <div
+              className="picture"
+            >
+              <img
+                alt="item"
+                src="item3Picture"
+              />
+            </div>
+            <div
+              className="cartItemHeader flex-betweened"
+            >
+              <div
+                className="name"
+              >
+                item3
+              </div>
+              <div
+                className="remove"
+                onClick={[Function]}
+              >
+                remove
+              </div>
+            </div>
+            <div
+              className="cartItemBody flex-betweened"
+            >
+              <div
+                className="details"
+              />
+              <div
+                className="priceCalculator"
+              >
+                <select
+                  id="quantity"
+                  name="quantity"
+                  onChange={[Function]}
+                  value={4}
+                >
+                  <option
+                    key="0"
+                    value={0}
+                  >
+                    0
+                  </option>
+                  <option
+                    key="1"
+                    value={1}
+                  >
+                    1
+                  </option>
+                  <option
+                    key="2"
+                    value={2}
+                  >
+                    2
+                  </option>
+                  <option
+                    key="3"
+                    value={3}
+                  >
+                    3
+                  </option>
+                  <option
+                    key="4"
+                    value={4}
+                  >
+                    4
+                  </option>
+                </select>
+                <div
+                  className="price"
+                >
+                  48
+                </div>
+              </div>
+            </div>
+          </li>
+        </CartItem>
+      </ul>
+      <div
+        className="cartTotal"
+      >
+        72
+      </div>
+      <button
+        className="checkout"
+        id="checkout"
+        onClick={[Function]}
+        type="submit"
+      >
+        CHECKOUT
+      </button>
+    </div>
+  </CartPage>
+</Provider>
+`;
