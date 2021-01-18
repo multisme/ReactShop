@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 import createMockStore from "redux-mock-store";
 import { shallow, mount } from "enzyme";
 
@@ -63,9 +64,11 @@ describe("cartPage", () => {
   });
   it("renders", () => {
     const component = mount(
-      <Provider store={store}>
-        <CartPage />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <CartPage />
+        </Provider>
+      </Router>
     );
     expect(component).toMatchSnapshot();
     const cartItems = component.find(".cartItem");
@@ -74,9 +77,11 @@ describe("cartPage", () => {
   it("renders an empty cart", () => {
     store = mockStore({ cart: { selection: {} } });
     const component = mount(
-      <Provider store={store}>
-        <CartPage />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <CartPage />
+        </Provider>
+      </Router>
     );
     const h3 = component.find("h3");
     expect(h3).toHaveLength(1);
@@ -84,9 +89,11 @@ describe("cartPage", () => {
   });
   it("update cartItem on changes in the cart", () => {
     const component = mount(
-      <Provider store={store}>
-        <CartPage />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <CartPage />
+        </Provider>
+      </Router>
     );
     const cartItem = component.find(".cartItem").at(0);
     const select = cartItem.find('select[name="quantity"]');

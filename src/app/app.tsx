@@ -17,6 +17,7 @@ import PayPage from "features/buy/PayingForm";
 import ThankPage from "features/buy/ThankForm";
 import CartPage from "features/cart/cartPage";
 import ErrorPage from "features/buy/ErrorPaiment"
+import Header from "features/header/header";
 
 import "app/app.css";
 
@@ -31,6 +32,7 @@ const App = () => {
   return (
   <Router>
     <div className="App">
+       <Header />
        <Switch> 
         <Route path="/products/:id" component={ItemPage}/>
         <Route exact path="/ship" component={ShipPage} />

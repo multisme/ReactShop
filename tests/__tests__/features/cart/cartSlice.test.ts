@@ -6,19 +6,22 @@ import createMockStore from "redux-mock-store";
 import reducer, {
   addToCart,
   cartItem,
+  cartLengthSelector,
   cartPriceSelector,
   cartPageSelector,
   cartState,
   emptyCart,
+  initCart,
   removeFromCart,
   updateCartItem,
 } from "features/cart/cartSlice";
+import {networkInterfaces} from "os";
 
 describe("cartSlice", () => {
   describe("reducers", () => {
-    let initialSate: cartState;
+    let initialState: cartState;
     beforeEach(() => {
-      initialSate = {
+      initialState = {
         selection: {},
       } as cartState;
     });
@@ -28,53 +31,66 @@ describe("cartSlice", () => {
       quantity: 3,
       price: 3,
     };
-    it("checks if the initialSate is correct", () => {
+    it("checks if the initialState is correct", () => {
       const emptyAction: Action<string> = { type: "" };
       const state = reducer(undefined, emptyAction);
-      expect(state).toEqual(initialSate);
+      expect(state).toEqual(initialState);
     });
+    it("checks that the cart is correctly initialised given the locals Storage", ()=> {
+            const newState = {selection:{[item.id]: item}}
+            const state1 = reducer(initialState, initCart);
+            expect(state1).toEqual(initialState);
+
+            localStorage.setItem("cart", JSON.stringify({ [item.id]: item }));
+            const state2 = reducer(initialState, initCart);
+            expect(state2).toEqual(newState);
+     });
     it("checks if it adds to cart if cart is empty", () => {
-      const state = reducer(initialSate, addToCart(item));
+      const state = reducer(initialState, addToCart(item));
       expect(state.selection).toMatchObject({ [item.id]: item });
     });
     it("checks if it adds to cart when cart is not empty", () => {
-      initialSate.selection[item.id] = item;
+      initialState.selection[item.id] = item;
       const item2: cartItem = {
         id: 4,
         quantity: 3,
         price: 3,
       };
-      const state = reducer(initialSate, addToCart(item2));
+      const state = reducer(initialState, addToCart(item2));
       expect(state.selection).toMatchObject({ [item.id]: item });
       expect(state.selection).toMatchObject({ [item2.id]: item2 });
     });
     it("checks if it removes from cart when cart is empty", () => {
-      const state = reducer(initialSate, removeFromCart(item));
-      expect(state).toEqual(initialSate);
+      const state = reducer(initialState, removeFromCart(item));
+      expect(state).toEqual(initialState);
     });
     it("checks that if the item exist, the quantity are added", () => {
-      initialSate.selection[item.id] = item;
-      const state = reducer(initialSate, addToCart(item));
+      initialState.selection[item.id] = item;
+      const state = reducer(initialState, addToCart(item));
       expect(state.selection[item.id].quantity).toEqual(
         item.quantity + item.quantity
       );
     });
+    it("checks that removeFromCart does nothing if the item is not in the cart", () =>{
+        const state = reducer(initialState, removeFromCart({id: undefined}))
+        expect(state).toEqual(initialState)
+    })
     it("checks if it removes from cart when cart is not empty", () => {
       const newState: cartState = {
         selection: { 3: item },
       };
       const state = reducer(newState, removeFromCart(item));
-      expect(state).toEqual(initialSate);
+      expect(state).toEqual(initialState);
     });
     it("checks if the cart item stay the same when the item is not in the cart", () => {
       const state = reducer(
-        initialSate,
+        initialState,
         updateCartItem({ id: item.id, quantity: 6 })
       );
-      expect(state).toEqual(initialSate);
+      expect(state).toEqual(initialState);
     });
     it("checks if the cart item is updated when the cart item is in the cart", () => {
-      initialSate.selection[item.id] = item;
+      initialState.selection[item.id] = item;
       const item2 = {
         id: 3,
         quantity: 6,
@@ -84,7 +100,7 @@ describe("cartSlice", () => {
         selection: { [item.id]: item2 },
       };
       const state = reducer(
-        initialSate,
+        initialState,
         updateCartItem({ id: item.id, quantity: 6 })
       );
       expect(state).toEqual(newState);
@@ -94,7 +110,7 @@ describe("cartSlice", () => {
         selection: { [item.id]: item },
       };
       const state = reducer(newState, emptyCart());
-      expect(state).toEqual(initialSate);
+      expect(state).toEqual(initialState);
     });
   });
 
@@ -142,7 +158,7 @@ describe("cartSlice", () => {
         },
       };
     });
-    it("returns nothing on an empty aray", () => {
+    it("returns a null price on an empty aray", () => {
       initialState = {
         selection: {},
       };
@@ -166,6 +182,15 @@ describe("cartSlice", () => {
         selection: {},
       };
       expect(cartPageSelector({ cart: initialState })).toEqual([]);
+    });
+    it("returns a length a 0 if the cart is empty", () => {
+      initialState = {
+        selection: {},
+      };
+     expect(cartLengthSelector({ cart: initialState })).toEqual(0);
+    });
+    it("returns a length a 0 if the cart is not empty", () => {
+            expect(cartLengthSelector({ cart: initialState })).toEqual(5);
     });
   });
 });

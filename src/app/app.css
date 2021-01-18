@@ -476,6 +476,8 @@ a:visited {
   text-align: center;
   width: 100%;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 7% auto;
 }
 .flex-centered {
   display: flex;
@@ -495,7 +497,6 @@ a:visited {
 
 #home {
   display: grid;
-  grid-template-rows: 7% auto;
   width: 100%;
 }
 
@@ -868,7 +869,7 @@ input {
   .itemCard {
     width: 30%;
   }
-  #home {
+  .App {
     grid-template-rows: 25% auto;
     overflow: scroll;
   }

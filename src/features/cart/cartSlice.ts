@@ -46,11 +46,7 @@ const cartSlice = createSlice({
       if (payload.id === undefined || state.selection[payload.id] === undefined) {
         return;
       }
-      if (payload.quantity === 0) {
-        delete state.selection[payload.id];
-      } else {
-        state.selection[payload.id].quantity = payload.quantity;
-      }
+      state.selection[payload.id].quantity = payload.quantity;
       localStorage.setItem("cart", JSON.stringify(state.selection));
     },
     emptyCart: (state) => {
@@ -70,6 +66,10 @@ export const cartPriceSelector = (state: { cart: cartState }) => {
 
 export const cartPageSelector = (state: { cart: cartState }) => {
   return Object.values(state.cart.selection);
+};
+
+export const cartLengthSelector = (state: { cart: cartState}) => {
+  return Object.values(state.cart.selection).length;
 };
 
 export default cartSlice.reducer;
