@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { itemsSelector } from "features/items/itemsSlice";
+import { itemListSelector } from "features/items/itemsSlice";
 
 import { ItemListDisplay } from "features/items/itemsDisplay";
 
@@ -9,7 +9,7 @@ import "features/items/itemsContainer.css";
 
 export const ItemsContainer = () => {
 
-  const { hasError, loading, items } = useSelector(itemsSelector);
+  const { hasError, loading, items } = useSelector(itemListSelector);
  
   if (hasError) {
     return (

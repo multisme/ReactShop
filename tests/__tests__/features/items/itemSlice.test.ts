@@ -11,8 +11,8 @@ import reducer, {
   getItems,
   getItemsFailure,
   getItemsSuccess,
-  itemsSelector,
-  itemPageSelector,
+  itemListSelector,
+  itemSelector,
   itemListState,
 } from "features/items/itemsSlice";
 
@@ -51,33 +51,33 @@ describe("itemSlice", () => {
   });
 
   describe("selectors", () => {
-    it("returns an empty array when ther are no items on itemsSelector", () => {
+    it("returns an empty array when ther are no items on itemListSelector", () => {
       const initialState = {
         loading: false,
         hasError: false,
         items: [],
       } as itemListState;
-      const items = itemsSelector({ items: initialState });
+      const items = itemListSelector({ items: initialState });
       expect(items).toEqual(initialState);
     });
 
-    it("returns an empty array when there are a lot of items on itemsSelector", () => {
+    it("returns an empty array when there are a lot of items on itemListSelector", () => {
       const initialState = {
         loading: false,
         hasError: false,
-        items: [{ id: 1, name: "toto", quantity: 3 }],
+        items: [{ id: 1, name: "toto", quantity: 3 , price: 3}],
       };
-      const items = itemsSelector({ items: initialState });
+      const items = itemListSelector({ items: initialState });
       expect(items).toEqual(initialState);
     });
 
-    it("returns an empty array when ther are no items corresponding on itemPageSelector", () => {
+    it("returns an empty array when ther are no items corresponding on itemSelector", () => {
      let state1 = {
         loading: false,
         hasError: false,
         items: [],
       } as itemListState;
-      const items1 = itemPageSelector({ items: state1}, "2");
+      const items1 = itemSelector({ items: state1}, "2");
       expect(items1).toEqual([]);
  
       let state2 = {
@@ -87,7 +87,7 @@ describe("itemSlice", () => {
                 {id:3, name: "polo", quantity: 4, price: 6}
         ],
       } as itemListState;
-      const items2 = itemPageSelector({ items: state2}, "2");
+      const items2 = itemSelector({ items: state2}, "2");
       expect(items2).toEqual([]);
     });
     });
@@ -100,7 +100,7 @@ describe("itemSlice", () => {
       fetchMock.restore();
     });
     it("fetch items and return them on success by dispatching the correct actions", () => {
-      const payload = [{ id: 1, name: "testname", quantity: 3 }];
+      const payload = [{ id: 1, name: "testname", quantity: 3, price: 4 }];
       fetchMock.getOnce("http://localhost:3000/items", {
         body: payload,
       });
@@ -114,7 +114,7 @@ describe("itemSlice", () => {
       });
     });
     it("fetch items and return an error if there is one by dispatching the correct actions", () => {
-      const payload = [{ id: 1, name: "testname", quantity: 3 }];
+      const payload = [{ id: 1, name: "testname", quantity: 3 , price: 4}];
       fetchMock.getOnce("http://localhost:3000/items", {
         throws: Error,
       });

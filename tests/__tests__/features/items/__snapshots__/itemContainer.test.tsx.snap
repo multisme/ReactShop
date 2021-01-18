@@ -14,13 +14,16 @@ exports[`itemsContainer correct component rendered on hasError 1`] = `
   }
 >
   <ItemsContainer>
-    <div>
+    <div
+      style={
+        Object {
+          "fontSize": "30px",
+        }
+      }
+    >
       <h1>
-        Something went wrong with the database
+        Something went wrong with the backend
       </h1>
-      <h3>
-        Is the developper payed well enough?
-      </h3>
     </div>
   </ItemsContainer>
 </Provider>

@@ -15,7 +15,7 @@ import ShipPage from "features/buy/ShippingForm";
 import BillPage from "features/buy/BillingForm";
 import PayPage from "features/buy/PayingForm";
 import ThankPage from "features/buy/ThankForm";
-import CartPage from "features/cart/CartPage";
+import CartPage from "features/cart/cartPage";
 import ErrorPage from "features/buy/ErrorPaiment"
 
 import "app/app.css";

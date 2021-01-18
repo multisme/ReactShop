@@ -40,10 +40,10 @@ export const {
   getItemsFailure,
 } = ItemsSlice.actions;
 
-export const itemsSelector = (state: { items: itemListState }) =>
+export const itemListSelector = (state: { items: itemListState }) =>
   state.items;
 
-export const itemPageSelector = createSelector(
+export const itemSelector = createSelector(
         (state) => state.items.items,
         (_: any, id: string | undefined) => id !== undefined ? parseInt(id) : -1 ,
         (items, id) => items.filter((item: itemData) => item.id === id)

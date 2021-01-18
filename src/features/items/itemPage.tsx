@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory, useParams } from "react-router-dom";
 
-import { itemPageSelector } from "features/items/itemsSlice";
+import { itemSelector } from "features/items/itemsSlice";
 import { addToCart } from "features/cart/cartSlice";
 
 import { useFormFields } from "utils/utils";
@@ -18,7 +18,7 @@ const ItemPage = () => {
     quantity: 0,
   });
   const dispatch = useDispatch();
-  const [item] = useSelector((state) => itemPageSelector(state, id));
+  const [item] = useSelector((state) => itemSelector(state, id));
   const history = useHistory();
   if (id === undefined || item === undefined) {
     return <h3>Error</h3>;
@@ -32,8 +32,6 @@ const ItemPage = () => {
           id: parseInt(id),
           quantity: parseInt(fields.quantity.content),
           price: item.price,
-          url: item.url,
-          name: item.name,
         })
       );
       history.push("/cart");
