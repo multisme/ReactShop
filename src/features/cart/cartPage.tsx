@@ -15,13 +15,16 @@ interface cartItemProps {
 }
 
 const CartItem = ({ cart_item }: cartItemProps) => {
-  const [item] = useSelector(
-        (state) => itemSelector(state, String(cart_item.id))
-  );
-  const [price, setPrice] = useState(cart_item.quantity * item.price);
+  const [price, setPrice] = useState(cart_item.quantity * cart_item.price);
   const [quantity, setQuantity] = useState(cart_item.quantity);
   const dispatch = useDispatch();
-  
+  const [item] = useSelector(
+        (state) => itemSelector(state, cart_item.id.toString())
+  );
+ 
+  if (item === undefined)
+          return(<h3>Loading</h3>);
+ 
   const range = [...Array(item.quantity + 1).keys()];
   const availableQuantities = range.map((i) => (
     <option value={i} key={i}>

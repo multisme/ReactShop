@@ -21,7 +21,7 @@ exports[`cartPage renders 1`] = `
         className="cartItems"
       >
         <CartItem
-          item={
+          cart_item={
             Object {
               "id": 2,
               "name": "item2",
@@ -127,6 +127,48 @@ exports[`cartPage renders 1`] = `
                   >
                     8
                   </option>
+                  <option
+                    key="9"
+                    value={9}
+                  >
+                    9
+                  </option>
+                  <option
+                    key="10"
+                    value={10}
+                  >
+                    10
+                  </option>
+                  <option
+                    key="11"
+                    value={11}
+                  >
+                    11
+                  </option>
+                  <option
+                    key="12"
+                    value={12}
+                  >
+                    12
+                  </option>
+                  <option
+                    key="13"
+                    value={13}
+                  >
+                    13
+                  </option>
+                  <option
+                    key="14"
+                    value={14}
+                  >
+                    14
+                  </option>
+                  <option
+                    key="15"
+                    value={15}
+                  >
+                    15
+                  </option>
                 </select>
                 <div
                   className="price"
@@ -138,7 +180,7 @@ exports[`cartPage renders 1`] = `
           </li>
         </CartItem>
         <CartItem
-          item={
+          cart_item={
             Object {
               "id": 3,
               "name": "item1",
@@ -220,6 +262,30 @@ exports[`cartPage renders 1`] = `
                   >
                     4
                   </option>
+                  <option
+                    key="5"
+                    value={5}
+                  >
+                    5
+                  </option>
+                  <option
+                    key="6"
+                    value={6}
+                  >
+                    6
+                  </option>
+                  <option
+                    key="7"
+                    value={7}
+                  >
+                    7
+                  </option>
+                  <option
+                    key="8"
+                    value={8}
+                  >
+                    8
+                  </option>
                 </select>
                 <div
                   className="price"
@@ -231,7 +297,7 @@ exports[`cartPage renders 1`] = `
           </li>
         </CartItem>
         <CartItem
-          item={
+          cart_item={
             Object {
               "id": 5,
               "name": "item3",
@@ -250,7 +316,6 @@ exports[`cartPage renders 1`] = `
             >
               <img
                 alt="item"
-                src="item3Picture"
               />
             </div>
             <div
@@ -312,6 +377,36 @@ exports[`cartPage renders 1`] = `
                     value={4}
                   >
                     4
+                  </option>
+                  <option
+                    key="5"
+                    value={5}
+                  >
+                    5
+                  </option>
+                  <option
+                    key="6"
+                    value={6}
+                  >
+                    6
+                  </option>
+                  <option
+                    key="7"
+                    value={7}
+                  >
+                    7
+                  </option>
+                  <option
+                    key="8"
+                    value={8}
+                  >
+                    8
+                  </option>
+                  <option
+                    key="9"
+                    value={9}
+                  >
+                    9
                   </option>
                 </select>
                 <div
