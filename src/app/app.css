@@ -869,7 +869,7 @@ input {
     width: 30%;
   }
   #home {
-    grid-template-columns: auto;
+    grid-template-rows: 25% auto;
     overflow: scroll;
   }
   .ListContainer {
