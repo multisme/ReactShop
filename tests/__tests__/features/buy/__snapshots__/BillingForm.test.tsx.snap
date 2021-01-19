@@ -9,7 +9,8 @@ exports[`ShippingForm renders 1`] = `
     onSubmit={[Function]}
   >
     <label>
-      Name: 
+      Name:
+       
       <input
         id="name"
         onChange={[Function]}
@@ -19,7 +20,8 @@ exports[`ShippingForm renders 1`] = `
        
     </label>
     <label>
-      Email: 
+      Email:
+       
       <input
         id="email"
         onChange={[Function]}
@@ -29,7 +31,8 @@ exports[`ShippingForm renders 1`] = `
        
     </label>
     <label>
-      Shipping Address: 
+      Shipping Address:
+       
       <input
         id="address"
         onChange={[Function]}
@@ -39,7 +42,8 @@ exports[`ShippingForm renders 1`] = `
        
     </label>
     <label>
-      City: 
+      City:
+       
       <input
         id="city"
         onChange={[Function]}
@@ -49,7 +53,8 @@ exports[`ShippingForm renders 1`] = `
        
     </label>
     <label>
-      Postal Code: 
+      Postal Code:
+       
       <input
         id="postalCode"
         onChange={[Function]}

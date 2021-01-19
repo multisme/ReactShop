@@ -26,7 +26,7 @@ describe("showcaseSlice", () => {
     });
 
     it("checks that the updateSelectedItem reducer works if selected is null", () => {
-      const item: itemData = { id: 3, name: "choco", quantity: 4 };
+      const item: itemData = { id: 3, name: "choco", quantity: 4, price: 10 };
 
       const state = reducer(initialState, updateSelectedItem(item));
       expect(state).toEqual({
@@ -35,8 +35,8 @@ describe("showcaseSlice", () => {
     });
 
     it("checks that the updateSelectedItem reducer works if selected is not null", () => {
-      const item: itemData = { id: 3, name: "choco", quantity: 4 };
-      const item2: itemData = { id: 3, name: "bon", quantity: 4 };
+      const item: itemData = { id: 3, name: "choco", quantity: 4, price: 8};
+      const item2: itemData = { id: 3, name: "bon", quantity: 4, price: 9};
 
       const initialState = {
         selected: item,
@@ -48,7 +48,7 @@ describe("showcaseSlice", () => {
     });
 
     it("checks that the removeSelectedItem reducer works if selected is not null", () => {
-      const item: itemData = { id: 3, name: "choco", quantity: 4 };
+      const item: itemData = { id: 3, name: "choco", quantity: 4 , price: 3};
       const initialState = {
         selected: item,
       };
@@ -67,7 +67,7 @@ describe("showcaseSlice", () => {
     });
   });
   describe("actions", () => {
-    const item: itemData = { id: 3, name: "choco", quantity: 4 };
+    const item: itemData = { id: 3, name: "choco", quantity: 4, price: 6};
     const mockStore = createMockStore();
     it("insure that updateSelectedItem action is sent", () => {
       const store = mockStore();

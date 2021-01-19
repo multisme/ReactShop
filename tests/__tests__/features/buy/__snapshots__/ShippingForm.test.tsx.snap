@@ -8,7 +8,8 @@ exports[`BillingForm rendets 1`] = `
 >
   <form>
     <label>
-      Billing Name: 
+      Billing Name:
+       
       <input
         id="Name"
         onChange={[Function]}
@@ -17,7 +18,8 @@ exports[`BillingForm rendets 1`] = `
       />
     </label>
     <label>
-      Email: 
+      Email:
+       
       <input
         id="email"
         onChange={[Function]}
@@ -26,7 +28,8 @@ exports[`BillingForm rendets 1`] = `
       />
     </label>
     <label>
-      Billing Address: 
+      Billing Address:
+       
       <input
         id="address"
         onChange={[Function]}
@@ -36,7 +39,8 @@ exports[`BillingForm rendets 1`] = `
        
     </label>
     <label>
-      City: 
+      City:
+       
       <input
         id="city"
         onChange={[Function]}
@@ -45,7 +49,8 @@ exports[`BillingForm rendets 1`] = `
       />
     </label>
     <label>
-      Postal Code: 
+      Postal Code:
+       
       <input
         id="postalCode"
         onChange={[Function]}

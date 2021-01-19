@@ -41,7 +41,6 @@ describe("StripeCheckoutForm", () => {
     );
     const button = component.find('button[type="submit"]');
     expect(button.text()).toEqual("Pay 42€");
-    expect(component).toMatchSnapshot();
   });
   it("goes to ThanksPage page if paiement succeed", () => {
     stripeMock.createPaymentMethod.mockReturnValue({
