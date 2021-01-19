@@ -8,17 +8,15 @@ interface ShowcaseItemDisplayProps {
 }
 
 export const ShowcaseItemDisplay = ({ item }: ShowcaseItemDisplayProps) => {
-  
   return (
     <div className={"showcaseItem"}>
       <div className="price flex-betweened">
-      <span>{item.price}€</span>
+        <span>{item.price}€</span>
       </div>
       <div className={"showcasePicture border-green"}>
-        <img src={item.url} alt={item.name}/>
+        <img src={item.url} alt={item.name} />
       </div>
-      <div className="ShowcaseDetails">
-      </div>
+      <div className="ShowcaseDetails"></div>
     </div>
   );
 };

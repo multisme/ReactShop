@@ -8,19 +8,16 @@ import ShowcaseTitle from "features/showcase/showcaseTitle";
 //interface ShowcaseContainerProps{}
 
 const ShowcaseContainer = () => {
-
-const { selected } = useSelector((state: RootState) => state.showcase);
+  const { selected } = useSelector((state: RootState) => state.showcase);
 
   const renderedElement =
     selected == null ? (
-        <ShowcaseTitle />
+      <ShowcaseTitle />
     ) : (
-        <ShowcaseItemDisplay item={selected} />
+      <ShowcaseItemDisplay item={selected} />
     );
   return (
-    <div className="showcaseContainer flex-centered">
-     {renderedElement}
-    </div>
+    <div className="showcaseContainer flex-centered">{renderedElement}</div>
   );
 };
 

@@ -7,7 +7,7 @@ import cartSliceReducer from "features/cart/cartSlice";
 const rootReducer = combineReducers({
   items: ItemsSliceReducer,
   showcase: showcaseSliceReducer,
-  cart: cartSliceReducer
+  cart: cartSliceReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

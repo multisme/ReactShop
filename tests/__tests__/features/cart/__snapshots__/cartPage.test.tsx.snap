@@ -47,10 +47,8 @@ exports[`cartPage renders 1`] = `
               cart_item={
                 Object {
                   "id": 2,
-                  "name": "item2",
                   "price": 1,
                   "quantity": 8,
-                  "url": "item2Picture",
                 }
               }
               key="2"
@@ -219,10 +217,8 @@ exports[`cartPage renders 1`] = `
               cart_item={
                 Object {
                   "id": 3,
-                  "name": "item1",
                   "price": 4,
                   "quantity": 4,
-                  "url": "item1Picture",
                 }
               }
               key="3"
@@ -349,10 +345,8 @@ exports[`cartPage renders 1`] = `
               cart_item={
                 Object {
                   "id": 5,
-                  "name": "item3",
                   "price": 12,
                   "quantity": 4,
-                  "url": "item3Picture",
                 }
               }
               key="5"
@@ -512,14 +506,27 @@ exports[`cartPage renders 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-            <button
-              className="checkout"
-              id="checkout"
-              onClick={[Function]}
-              type="submit"
+            <Link
+              to="/bill"
             >
-              CHECKOUT
-            </button>
+              <LinkAnchor
+                href="/bill"
+                navigate={[Function]}
+              >
+                <a
+                  href="/bill"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="checkout"
+                    id="checkout"
+                    type="submit"
+                  >
+                    CHECKOUT
+                  </button>
+                </a>
+              </LinkAnchor>
+            </Link>
           </fieldset>
         </div>
       </CartPage>

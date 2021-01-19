@@ -44,10 +44,10 @@ export const itemListSelector = (state: { items: itemListState }) =>
   state.items;
 
 export const itemSelector = createSelector(
-        (state) => state.items.items,
-        (_: any, id: string | undefined) => id !== undefined ? parseInt(id) : -1 ,
-        (items, id) => items.filter((item: itemData) => item.id === id)
-)
+  (state) => state.items.items,
+  (_: any, id: string | undefined) => (id !== undefined ? parseInt(id) : -1),
+  (items, id) => items.filter((item: itemData) => item.id === id)
+);
 
 //Thunk action TO fetch the Items
 export const fetchItems = (): AppThunk => async (dispatch) => {

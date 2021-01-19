@@ -33,20 +33,29 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("cart", JSON.stringify(state.selection));
     },
-    removeFromCart: (state, { payload }: PayloadAction<{id: number | undefined}>) => {
-      if (payload.id === undefined)
-              return;
+    removeFromCart: (
+      state,
+      { payload }: PayloadAction<{ id: number | undefined }>
+    ) => {
+      if (payload.id === undefined) return;
       delete state.selection[payload.id];
       localStorage.setItem("cart", JSON.stringify(state.selection));
     },
     updateCartItem: (
       state,
-      { payload }: PayloadAction<{ id: number | undefined ; quantity: number }>
+      { payload }: PayloadAction<{ id: number | undefined; quantity: number }>
     ) => {
-      if (payload.id === undefined || state.selection[payload.id] === undefined) {
+      if (
+        payload.id === undefined ||
+        state.selection[payload.id] === undefined
+      ) {
         return;
       }
-      state.selection[payload.id].quantity = payload.quantity;
+      if (payload.quantity === 0) {
+        delete state.selection[payload.id];
+      } else {
+        state.selection[payload.id].quantity = payload.quantity;
+      }
       localStorage.setItem("cart", JSON.stringify(state.selection));
     },
     emptyCart: (state) => {
@@ -68,7 +77,8 @@ export const cartPageSelector = (state: { cart: cartState }) => {
   return Object.values(state.cart.selection);
 };
 
-export const cartLengthSelector = (state: { cart: cartState}) => {
+export const cartLengthSelector = (state: { cart: cartState }) => {
+  if (state.cart === undefined) return 0;
   return Object.values(state.cart.selection).length;
 };
 

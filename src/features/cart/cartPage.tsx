@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   cartItem,
@@ -34,7 +34,6 @@ const CartItem = ({ cart_item }: cartItemProps) => {
   ));
 
   const handleQuantity = (event: any) => {
-    event.preventDefault();
     const new_quantity = parseInt(event.currentTarget.value);
     event.target.value = new_quantity;
     setQuantity(new_quantity);
@@ -86,13 +85,6 @@ const CartPage = () => {
   const cartItems = useSelector(cartPageSelector);
   const total = useSelector(cartPriceSelector);
 
-  const history = useHistory();
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    history.push("/bill");
-  };
-
   if (cartItems.length === 0) {
     return <h3> cart is empty </h3>;
   }
@@ -109,16 +101,13 @@ const CartPage = () => {
       </div>
       <fieldset className="button">
         <Link to={"/"}>
-         <button>GO BACK</button>
+          <button>GO BACK</button>
         </Link>
-        <button
-          type="submit"
-          id="checkout"
-          className="checkout"
-          onClick={handleSubmit}
-        >
-          CHECKOUT
-        </button>
+        <Link to={"/bill"}>
+          <button type="submit" id="checkout" className="checkout">
+            CHECKOUT
+          </button>
+        </Link>
       </fieldset>
     </div>
   );

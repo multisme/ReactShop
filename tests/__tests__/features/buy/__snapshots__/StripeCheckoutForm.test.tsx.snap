@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StripeCheckoutForm checks that the total is correct 1`] = `
+<MemoryRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "vcr6jq",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "vcr6jq",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Elements
+      stripe={Promise {}}
+    >
+      <StripeCheckoutForm
+        total={42}
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <CardElement
+            className="stripePaiment"
+            options={
+              Object {
+                "style": Object {
+                  "base": Object {
+                    "fontSize": "16px",
+                  },
+                  "invalid": Object {
+                    "color": "#ffc7ee",
+                    "iconColor": "#ffc7ee",
+                  },
+                },
+              }
+            }
+          >
+            <div
+              className="stripePaiment"
+            />
+          </CardElement>
+          <button
+            disabled={true}
+            type="submit"
+          >
+            Pay 
+            42
+            €
+          </button>
+          <Link
+            to="/home"
+          >
+            <LinkAnchor
+              href="/home"
+              navigate={[Function]}
+            >
+              <a
+                href="/home"
+                onClick={[Function]}
+              >
+                <button>
+                  CANCEL
+                </button>
+              </a>
+            </LinkAnchor>
+          </Link>
+        </form>
+      </StripeCheckoutForm>
+    </Elements>
+  </Router>
+</MemoryRouter>
+`;

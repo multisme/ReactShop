@@ -31,8 +31,3 @@ export function checkValidFields(fields: Record<string, FormField>) {
   }
   return true;
 }
-
-interface priceProps {
-  item: cartItem;
-  quantity: number;
-}

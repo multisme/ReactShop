@@ -75,7 +75,7 @@ exports[`PayingFrom renders 1`] = `
                   type="submit"
                 >
                   Pay 
-                  21
+                  0
                   €
                 </button>
                 <Link

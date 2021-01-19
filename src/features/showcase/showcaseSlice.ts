@@ -6,7 +6,7 @@ export interface showcaseInterface {
 }
 
 export const initialState = {
-  selected: null
+  selected: null,
 } as showcaseInterface;
 
 const showcaseSlice = createSlice({

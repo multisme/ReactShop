@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorPaiment renders 1`] = `
+<div
+  className="rectangle"
+>
+  <h1>
+    Something went wrong with your paiement
+  </h1>
+  <h3>
+    You will be redirected in no time
+  </h3>
+</div>
+`;

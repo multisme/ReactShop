@@ -15,7 +15,7 @@ import reducer, {
   removeFromCart,
   updateCartItem,
 } from "features/cart/cartSlice";
-import {networkInterfaces} from "os";
+import { networkInterfaces } from "os";
 
 describe("cartSlice", () => {
   describe("reducers", () => {
@@ -36,15 +36,15 @@ describe("cartSlice", () => {
       const state = reducer(undefined, emptyAction);
       expect(state).toEqual(initialState);
     });
-    it("checks that the cart is correctly initialised given the locals Storage", ()=> {
-            const newState = {selection:{[item.id]: item}}
-            const state1 = reducer(initialState, initCart);
-            expect(state1).toEqual(initialState);
+    it("checks that the cart is correctly initialised given the locals Storage", () => {
+      const newState = { selection: { [item.id]: item } };
+      const state1 = reducer(initialState, initCart);
+      expect(state1).toEqual(initialState);
 
-            localStorage.setItem("cart", JSON.stringify({ [item.id]: item }));
-            const state2 = reducer(initialState, initCart);
-            expect(state2).toEqual(newState);
-     });
+      localStorage.setItem("cart", JSON.stringify({ [item.id]: item }));
+      const state2 = reducer(initialState, initCart);
+      expect(state2).toEqual(newState);
+    });
     it("checks if it adds to cart if cart is empty", () => {
       const state = reducer(initialState, addToCart(item));
       expect(state.selection).toMatchObject({ [item.id]: item });
@@ -71,10 +71,10 @@ describe("cartSlice", () => {
         item.quantity + item.quantity
       );
     });
-    it("checks that removeFromCart does nothing if the item is not in the cart", () =>{
-        const state = reducer(initialState, removeFromCart({id: undefined}))
-        expect(state).toEqual(initialState)
-    })
+    it("checks that removeFromCart does nothing if the item is not in the cart", () => {
+      const state = reducer(initialState, removeFromCart({ id: undefined }));
+      expect(state).toEqual(initialState);
+    });
     it("checks if it removes from cart when cart is not empty", () => {
       const newState: cartState = {
         selection: { 3: item },
@@ -91,17 +91,18 @@ describe("cartSlice", () => {
     });
     it("checks if the cart item is updated when the cart item is in the cart", () => {
       initialState.selection[item.id] = item;
-      const item2 = {
-        id: 3,
-        quantity: 6,
-        price: 3,
-      };
-      const newState: cartState = {
-        selection: { [item.id]: item2 },
-      };
       const state = reducer(
         initialState,
         updateCartItem({ id: item.id, quantity: 6 })
+      );
+      expect(state.selection[item.id].quantity).toEqual(6);
+    });
+    it("checks if the cart item is removed when the quantity is update to 0", () => {
+      initialState.selection[item.id] = item;
+      const newState: cartState = { selection: {} };
+      const state = reducer(
+        initialState,
+        updateCartItem({ id: item.id, quantity: 0 })
       );
       expect(state).toEqual(newState);
     });
@@ -150,11 +151,11 @@ describe("cartSlice", () => {
     beforeEach(() => {
       initialState = {
         selection: {
-          1: { id: 1, quantity: 4, price: 3},
-          2: { id: 2, quantity: 2, price: 8},
-          3: { id: 3, quantity: 1, price: 2},
-          4: { id: 4, quantity: 3, price: 6},
-          5: { id: 5, quantity: 0, price: 7},
+          1: { id: 1, quantity: 4, price: 3 },
+          2: { id: 2, quantity: 2, price: 8 },
+          3: { id: 3, quantity: 1, price: 2 },
+          4: { id: 4, quantity: 3, price: 6 },
+          5: { id: 5, quantity: 0, price: 7 },
         },
       };
     });
@@ -169,11 +170,11 @@ describe("cartSlice", () => {
     });
     it("returns a cart of items if there are none", () => {
       const cart = [
-        { id: 1, quantity: 4, price: 3},
-        { id: 2, quantity: 2, price: 8},
-        { id: 3, quantity: 1, price: 2},
-        { id: 4, quantity: 3, price: 6},
-        { id: 5, quantity: 0, price: 7},
+        { id: 1, quantity: 4, price: 3 },
+        { id: 2, quantity: 2, price: 8 },
+        { id: 3, quantity: 1, price: 2 },
+        { id: 4, quantity: 3, price: 6 },
+        { id: 5, quantity: 0, price: 7 },
       ];
       expect(cartPageSelector({ cart: initialState })).toEqual(cart);
     });
@@ -187,10 +188,10 @@ describe("cartSlice", () => {
       initialState = {
         selection: {},
       };
-     expect(cartLengthSelector({ cart: initialState })).toEqual(0);
+      expect(cartLengthSelector({ cart: initialState })).toEqual(0);
     });
     it("returns a length a 0 if the cart is not empty", () => {
-            expect(cartLengthSelector({ cart: initialState })).toEqual(5);
+      expect(cartLengthSelector({ cart: initialState })).toEqual(5);
     });
   });
 });

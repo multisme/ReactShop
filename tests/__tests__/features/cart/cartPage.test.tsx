@@ -1,10 +1,12 @@
+import * as react from "react";
 import { Provider } from "react-redux";
+import * as router from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import createMockStore from "redux-mock-store";
 import { shallow, mount } from "enzyme";
 
+import { updateCartItem, removeFromCart } from "features/cart/cartSlice";
 import CartPage from "features/cart/cartPage";
-
 describe("cartPage", () => {
   let store: any;
   const mockStore = createMockStore();
@@ -41,22 +43,16 @@ describe("cartPage", () => {
             id: 3,
             price: 4,
             quantity: 4,
-            name: "item1",
-            url: "item1Picture",
           },
           2: {
             id: 2,
             price: 1,
             quantity: 8,
-            name: "item2",
-            url: "item2Picture",
           },
           5: {
             id: 5,
             price: 12,
             quantity: 4,
-            name: "item3",
-            url: "item3Picture",
           },
         },
       },
@@ -87,6 +83,25 @@ describe("cartPage", () => {
     expect(h3).toHaveLength(1);
     expect(h3.text()).toEqual(" cart is empty ");
   });
+  it("renders loading if item is undefined", () => {
+    store = mockStore({
+      cart: {
+        selection: {
+          3: { id: 3, quantity: 4, price: 5 },
+        },
+      },
+      items: { items: [] },
+    });
+    const component = mount(
+      <Router>
+        <Provider store={store}>
+          <CartPage />
+        </Provider>
+      </Router>
+    );
+    const h3 = component.find("h3");
+    expect(h3.text()).toEqual("Loading");
+  });
   it("update cartItem on changes in the cart", () => {
     const component = mount(
       <Router>
@@ -97,9 +112,34 @@ describe("cartPage", () => {
     );
     const cartItem = component.find(".cartItem").at(0);
     const select = cartItem.find('select[name="quantity"]');
-    select.simulate("change", { target: { value: 3 } });
-    expect(cartItem.find('select[name="quantity"]').prop("value")).toBe(3);
-    const price = cartItem.find(".price").at(0);
-    expect(price.text()).toEqual("3");
+
+    select.simulate("change", {
+      target: { name: "quantity", value: "3" },
+      currentTarget: { name: "quantity", value: "3" },
+    });
+    //Still not working
+    expect(select.props().value).toEqual("3");
+  });
+  it("remove the cart item on click", () => {
+    store.dispatch = jest.fn();
+
+    jest.mock("react-router-dom", () => ({
+      ...(jest.requireActual("react-router-dom") as typeof router),
+      useHistory: () => ({
+        push: jest.fn(),
+      }),
+    }));
+    const component = mount(
+      <Router>
+        <Provider store={store}>
+          <CartPage />
+        </Provider>
+      </Router>
+    );
+    const cartItem = component.find(".cartItem").at(0);
+    const select = cartItem.find(".remove");
+    select.simulate("click");
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledWith(removeFromCart({ id: 2 }));
   });
 });
